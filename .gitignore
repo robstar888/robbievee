@@ -1,0 +1,62 @@
+# Environment & Configuration
+.env
+.env.local
+.env.*.local
+.env.production
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.sublime-project
+.sublime-workspace
+*.code-workspace
+
+# Build & Dependencies
+node_modules/
+dist/
+build/
+.next/
+.nuxt/
+out/
+
+# Package managers
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Testing
+.coverage/
+coverage/
+.nyc_output/
+*.lcov
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
+Thumbs.db
+.DS_Store
+*.ini
+
+# Local development
+.cache/
+.venv/
+venv/
+env/
+
+# Generated files
+*.min.js
+*.min.css
+.eslintcache
+
+# Miscellaneous
+.claude/settings.local.json
