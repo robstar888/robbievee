@@ -1,0 +1,74 @@
+{
+  "site": {
+    "name": "Robbie Vee",
+    "url": "https://robbievee.com",
+    "description": "Web development and digital solutions expert based in Bangkok, Thailand",
+    "language": "en",
+    "locale": "en_AU"
+  },
+  "pages": [
+    {
+      "path": "/",
+      "title": "Robbie Vee - Web Developer & Digital Solutions",
+      "description": "Expert web development and digital solutions for Australian and Southeast Asian markets",
+      "keywords": ["web development", "digital solutions", "Bangkok", "Australia"],
+      "canonical": "https://robbievee.com/",
+      "ogType": "website",
+      "priority": 1.0
+    },
+    {
+      "path": "/about.html",
+      "title": "About Robbie Vee - Web Developer",
+      "description": "Learn about Robbie Vee's experience, skills, and background in web development",
+      "keywords": ["about", "experience", "web developer"],
+      "canonical": "https://robbievee.com/about.html",
+      "ogType": "profile",
+      "priority": 0.9
+    },
+    {
+      "path": "/what-he-does.html",
+      "title": "Services - Web Development & Digital Solutions",
+      "description": "Discover the services offered: web development, design, and digital strategy",
+      "keywords": ["services", "web development", "design", "strategy"],
+      "canonical": "https://robbievee.com/what-he-does.html",
+      "ogType": "website",
+      "priority": 0.9
+    },
+    {
+      "path": "/where-he-works.html",
+      "title": "Portfolio - Web Development Projects",
+      "description": "View Robbie Vee's portfolio of web development and digital projects",
+      "keywords": ["portfolio", "projects", "case studies", "work"],
+      "canonical": "https://robbievee.com/where-he-works.html",
+      "ogType": "website",
+      "priority": 0.8
+    },
+    {
+      "path": "/contact.html",
+      "title": "Contact Robbie Vee - Get in Touch",
+      "description": "Get in touch with Robbie Vee for web development and digital solutions inquiries",
+      "keywords": ["contact", "get in touch", "inquiry"],
+      "canonical": "https://robbievee.com/contact.html",
+      "ogType": "website",
+      "priority": 0.8
+    }
+  ],
+  "social": {
+    "twitter": "@robbievee",
+    "linkedin": "https://linkedin.com/in/robbievee",
+    "github": "https://github.com/robbievee"
+  },
+  "analytics": {
+    "googleAnalyticsId": "G-XXXXXXXXXX",
+    "googleSearchConsoleVerification": ""
+  },
+  "localSeo": {
+    "businessName": "Robbie Vee",
+    "businessType": "Web Developer / Digital Agency",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "serviceAreas": ["Thailand", "Australia", "Southeast Asia"],
+    "phone": "+66-XX-XXXX-XXXX",
+    "email": "contact@robbievee.com"
+  }
+}

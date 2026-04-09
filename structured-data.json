@@ -1,0 +1,40 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Robbie Vee",
+  "url": "https://robbievee.com",
+  "image": "https://robbievee.com/images/profile.jpg",
+  "description": "Web development and digital solutions expert",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Bangkok",
+    "addressRegion": "Bangkok",
+    "postalCode": "",
+    "addressCountry": "TH"
+  },
+  "contact": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Service",
+    "url": "https://robbievee.com/contact.html"
+  },
+  "sameAs": [
+    "https://linkedin.com/in/robbievee",
+    "https://github.com/robbievee"
+  ],
+  "priceRange": "$$",
+  "areaServed": [
+    {
+      "@type": "Country",
+      "name": "Thailand"
+    },
+    {
+      "@type": "Country",
+      "name": "Australia"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "0"
+  }
+}
