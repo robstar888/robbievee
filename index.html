@@ -1265,6 +1265,11 @@
     toggle.addEventListener('click', () => menu.classList.add('open'));
     close.addEventListener('click', () => menu.classList.remove('open'));
     menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+    document.addEventListener('click', (e) => {
+      if (menu.classList.contains('open') && !menu.contains(e.target) && !toggle.contains(e.target)) {
+        menu.classList.remove('open');
+      }
+    });
   </script>
 </body>
 </html>

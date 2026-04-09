@@ -143,6 +143,7 @@
       .sectors-grid { grid-template-columns: 1fr 1fr; }
       .gallery-grid { grid-template-columns: 1fr 1fr; }
       .gallery-item.wide { grid-column: span 2; }
+      .gallery-item.wide:last-child { margin-top: 0; }
       #intro, #regions, #sectors, #gallery, #cta { padding: 5rem 0; }
       footer { flex-direction: column; gap: 0.8rem; text-align: center; padding: 1.5rem; }
     }
@@ -469,6 +470,13 @@
     document.getElementById('navToggle').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
     document.getElementById('mobileClose').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
     document.querySelectorAll('.mobile-menu a').forEach(a => a.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open')));
+    document.addEventListener('click', (e) => {
+      const menu = document.getElementById('mobileMenu');
+      const toggle = document.getElementById('navToggle');
+      if (menu.classList.contains('open') && !menu.contains(e.target) && !toggle.contains(e.target)) {
+        menu.classList.remove('open');
+      }
+    });
   </script>
 </body>
 </html>
