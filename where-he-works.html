@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Where He Works - Robbie Vee</title>
+  <meta name="description" content="Robbie Vee operates across Southeast Asia, Greater China, Central Asia, Latin America, and Australia. On-the-ground presence in the world's most dynamic emerging markets.">
+  <meta property="og:title" content="Where He Works - Robbie Vee">
+  <meta property="og:description" content="Robbie Vee operates across Southeast Asia, Greater China, Central Asia, Latin America, and Australia. On-the-ground presence in the world's most dynamic emerging markets.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://robbievee.com/where-he-works.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Robbie Vee",
+    "jobTitle": "Global Brand Ambassador",
+    "affiliation": { "@type": "Organization", "name": "MH Markets" },
+    "knowsAbout": ["Business Development", "Strategic Partnerships", "Market Entry", "Cross-Cultural Deal-Making", "Fintech", "Southeast Asia", "Latin America"],
+    "description": "Business development and partnerships professional with 20+ years of experience across 20+ countries, specialising in emerging markets."
+  }
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg-deep: #070f1e; --bg-navy: #0d2147; --bg-mid: #112f61;
+      --gold: #c2aa69; --gold-light: #d4c088;
+      --gold-glow: rgba(194,170,105,0.25); --gold-glow-strong: rgba(194,170,105,0.45);
+      --text-main: #ffffff; --text-dim: #b0c4de; --text-muted: #7a90b0;
+      --glass: rgba(255,255,255,0.04); --glass-border: rgba(194,170,105,0.18);
+      --ease-cinema: cubic-bezier(0.4,0,0.2,1);
+    }
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--bg-deep); color: var(--text-main); font-family: 'Inter', sans-serif; overflow-x: hidden; cursor: none; }
+    ::-webkit-scrollbar { width: 3px; } ::-webkit-scrollbar-track { background: var(--bg-deep); } ::-webkit-scrollbar-thumb { background: var(--gold); }
+    .cursor { position: fixed; width: 12px; height: 12px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width 0.3s, height 0.3s; }
+    .cursor.expanded { width: 36px; height: 36px; background: transparent; border: 1.5px solid var(--gold); box-shadow: 0 0 20px var(--gold-glow-strong); }
+    .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(194,170,105,0.4); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.5rem 3rem; display: flex; align-items: center; justify-content: space-between; transition: background 0.6s, padding 0.4s; }
+    nav.scrolled { background: rgba(7,15,30,0.92); backdrop-filter: blur(20px); padding: 1rem 3rem; border-bottom: 1px solid rgba(194,170,105,0.12); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; letter-spacing: 0.08em; color: var(--text-main); text-decoration: none; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: none; padding: 0.5rem; background: none; border: none; }
+    .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--text-main); }
+
+    .page-hero { position: relative; min-height: 60vh; display: flex; align-items: flex-end; overflow: hidden; padding-bottom: 5rem; }
+    #three-canvas { position: absolute; inset: 0; z-index: 0; }
+    .page-hero-inner { position: relative; z-index: 2; max-width: 1300px; margin: 0 auto; padding: 8rem 3rem 0; width: 100%; }
+    .page-label { font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 1rem; opacity: 0; }
+    .page-h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 700; line-height: 1.05; opacity: 0; }
+    .page-h1 em { font-style: italic; background: linear-gradient(135deg, #fff 0%, var(--gold) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .page-divider { width: 60px; height: 2px; background: var(--gold); margin-top: 2rem; opacity: 0; }
+
+    section { position: relative; }
+    .container { max-width: 1300px; margin: 0 auto; padding: 0 3rem; }
+    .section-label { font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; display: block; }
+    .section-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 600; line-height: 1.15; margin-bottom: 1.5rem; }
+    .gold-text { background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .reveal { opacity: 0; transform: translateY(40px); }
+
+    /* Intro */
+    #intro { padding: 7rem 0; background: var(--bg-navy); }
+    .intro-lead { font-size: 1.1rem; line-height: 1.85; color: var(--text-dim); max-width: 700px; margin-bottom: 2rem; }
+    .intro-body { font-size: 0.9rem; line-height: 1.9; color: var(--text-muted); max-width: 700px; }
+
+    /* Regions */
+    #regions { padding: 7rem 0; background: var(--bg-deep); }
+    .region-block { display: grid; grid-template-columns: 1fr 1.6fr; gap: 5rem; align-items: start; padding: 5rem 0; border-top: 1px solid var(--glass-border); }
+    .region-block:last-child { border-bottom: 1px solid var(--glass-border); }
+    .region-left { position: relative; }
+    .region-num { font-family: 'Cormorant Garamond', serif; font-size: 6rem; font-weight: 700; color: rgba(194,170,105,0.1); line-height: 0.9; margin-bottom: 1.5rem; }
+    .region-name { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .region-sub { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+    .region-right { }
+    .region-intro { font-size: 1rem; line-height: 1.85; color: var(--text-dim); margin-bottom: 1.5rem; }
+    .region-body { font-size: 0.88rem; line-height: 1.9; color: var(--text-muted); margin-bottom: 2rem; }
+    .region-cities { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2rem; }
+    .city-tag { padding: 0.35rem 0.9rem; border: 1px solid var(--glass-border); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); transition: border-color 0.3s, color 0.3s; }
+    .city-tag:hover { border-color: var(--gold); color: var(--gold); }
+    .region-photo { width: 100%; aspect-ratio: 16/9; overflow: hidden; margin-top: 1.5rem; }
+    .region-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 45%; filter: grayscale(20%); transition: filter 0.5s, transform 0.6s; }
+    .region-photo:hover img { filter: grayscale(0%); transform: scale(1.03); }
+    .region-block:nth-child(2) .region-photo img { object-position: center 25%; }
+    .region-block:nth-child(4) .region-photo img { object-position: center 25%; }
+    .region-block:nth-child(5) .region-photo img { object-position: center 60%; }
+    .region-sectors { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .sector { padding: 0.3rem 0.8rem; background: rgba(194,170,105,0.08); border: 1px solid rgba(194,170,105,0.2); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); }
+
+    /* Sectors strip */
+    #sectors { padding: 6rem 0; background: var(--bg-navy); }
+    .sectors-header { margin-bottom: 3.5rem; }
+    .sectors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .sector-card { background: var(--glass); border: 1px solid var(--glass-border); padding: 2rem 1.8rem; transition: border-color 0.3s, transform 0.3s; }
+    .sector-card:hover { border-color: rgba(194,170,105,0.35); transform: translateY(-3px); }
+    .sector-icon { font-size: 1.5rem; margin-bottom: 1rem; display: block; }
+    .sector-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; margin-bottom: 0.7rem; }
+    .sector-desc { font-size: 0.85rem; line-height: 1.75; color: var(--text-dim); }
+
+    /* Photos strip */
+    #gallery { padding: 6rem 0; background: var(--bg-deep); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .gallery-item { overflow: hidden; aspect-ratio: 3/4; }
+    .gallery-item.wide { aspect-ratio: 4/3; grid-column: span 2; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; filter: grayscale(30%); transition: filter 0.5s, transform 0.6s; }
+    .gallery-item:hover img { filter: grayscale(0%); transform: scale(1.04); }
+    .gallery-item.wide:last-child { margin-top: -3.5rem; }
+
+    /* CTA */
+    #cta { padding: 7rem 0; background: var(--bg-navy); text-align: center; }
+    .cta-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; margin-bottom: 1rem; }
+    .cta-sub { font-size: 1rem; color: var(--text-dim); margin-bottom: 2.5rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .btn-primary { display: inline-block; background: var(--gold); color: var(--bg-deep); padding: 0.9rem 2.2rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; cursor: none; transition: box-shadow 0.4s, transform 0.3s; }
+    .btn-primary:hover { box-shadow: 0 0 40px var(--gold-glow-strong); transform: translateY(-2px); }
+    .btn-ghost { display: inline-block; background: transparent; color: var(--gold); padding: 0.9rem 2.2rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--glass-border); cursor: none; transition: border-color 0.3s, background 0.3s; margin-left: 1rem; }
+    .btn-ghost:hover { border-color: var(--gold); background: rgba(194,170,105,0.07); }
+
+    footer { padding: 2rem 3rem; border-top: 1px solid rgba(194,170,105,0.1); display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; color: var(--text-muted); }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--text-dim); }
+    .footer-logo span { color: var(--gold); }
+    .mobile-menu { position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; background: rgba(7,15,30,0.97); backdrop-filter: blur(20px); z-index: 200; display: flex; flex-direction: column; justify-content: center; padding: 3rem 2.5rem; border-left: 1px solid var(--glass-border); transition: right 0.4s var(--ease-cinema); }
+    .mobile-menu.open { right: 0; }
+    .mobile-menu .nav-links { display: flex; flex-direction: column; gap: 2rem; }
+    .mobile-menu .nav-links a { font-size: 1rem; }
+    .mobile-close { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.5rem; color: var(--gold); cursor: none; background: none; border: none; padding: 0.5rem; }
+
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; } nav.scrolled { padding: 0.9rem 1.5rem; }
+      .nav-links { display: none; } .nav-toggle { display: flex; }
+      .container { padding: 0 1.5rem; }
+      .region-block { grid-template-columns: 1fr; gap: 2rem; }
+      .sectors-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item.wide { grid-column: span 2; }
+      #intro, #regions, #sectors, #gallery, #cta { padding: 5rem 0; }
+      footer { flex-direction: column; gap: 0.8rem; text-align: center; padding: 1.5rem; }
+    }
+    @media (max-width: 540px) {
+      .sectors-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">Robbie <span>Vee</span></a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="what-he-does.html">What He Does</a></li>
+      <li><a href="where-he-works.html" class="active">Where He Works</a></li>
+      <li><a href="contact.html">Connect</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose">&#x2715;</button>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="what-he-does.html">What He Does</a></li>
+      <li><a href="where-he-works.html">Where He Works</a></li>
+      <li><a href="contact.html">Connect</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <section class="page-hero">
+      <canvas id="three-canvas"></canvas>
+      <div class="page-hero-inner">
+        <span class="page-label" id="pageLabel">The Global Footprint</span>
+        <h1 class="page-h1" id="pageH1">Where He Works.<br><em>Who He Knows.</em></h1>
+        <div class="page-divider" id="pageDivider"></div>
+      </div>
+    </section>
+
+    <section id="intro">
+      <div class="container">
+        <span class="section-label reveal">On the Ground</span>
+        <h2 class="section-h2 reveal">Not just visited.<br><span class="gold-text">Lived and worked.</span></h2>
+        <p class="intro-lead reveal">Robbie Vee has spent 20 years building genuine relationships across four continents. His networks are not contact lists. They are friendships, business alliances, and mutual trust built over dinners, conference halls, and long flights between time zones.</p>
+        <p class="intro-body reveal">He is based in Chiang Mai, Thailand, with active presence in Southeast Asia, Greater China, Central Asia, Latin America, and Australia. Each region represents not just geography, but years of cultural immersion and earned credibility.</p>
+      </div>
+    </section>
+
+    <section id="regions">
+      <div class="container">
+        <div class="region-block">
+          <div class="region-left reveal">
+            <div class="region-num">01</div>
+            <div class="region-name">Southeast Asia</div>
+            <div class="region-sub">Primary Market</div>
+          </div>
+          <div class="region-right reveal">
+            <p class="region-intro">Home. Robbie is based in Chiang Mai, Thailand, and operates across the entire ASEAN region with established networks in every major market.</p>
+            <p class="region-body">Southeast Asia is his primary market and deepest expertise. He understands the cultural nuances between Thailand, Vietnam, Singapore, Indonesia, and the Philippines - and how business relationships are built differently in each.</p>
+            <div class="region-cities">
+              <span class="city-tag">Chiang Mai</span>
+              <span class="city-tag">Bangkok</span>
+              <span class="city-tag">Singapore</span>
+              <span class="city-tag">Danang</span>
+              <span class="city-tag">Ho Chi Minh City</span>
+              <span class="city-tag">Kuala Lumpur</span>
+              <span class="city-tag">Jakarta</span>
+            </div>
+            <div class="region-sectors">
+              <span class="sector">Fintech</span>
+              <span class="sector">Financial Services</span>
+              <span class="sector">Education</span>
+              <span class="sector">Mobile Payments</span>
+            </div>
+            <div class="region-photo">
+              <img src="images/robbievee robbie vee where he works danang.webp" alt="Robbie Vee in Danang Vietnam Southeast Asia operations" onerror="this.parentElement.style.background='#0d2147';this.style.display='none'">
+            </div>
+          </div>
+        </div>
+
+        <div class="region-block">
+          <div class="region-left reveal">
+            <div class="region-num">02</div>
+            <div class="region-name">Greater China</div>
+            <div class="region-sub">Deep Cultural Roots</div>
+          </div>
+          <div class="region-right reveal">
+            <p class="region-intro">Robbie lived and worked in Shanghai for two years, teaching Business English and building a network that has only deepened in the decade since.</p>
+            <p class="region-body">China is not just a market for Robbie - it is a culture he has studied from the inside. From teaching at Pegatron's campus of 80,000 employees to representing MH Markets at awards ceremonies in Guangzhou and Shenzhen, he understands how Chinese business culture actually works.</p>
+            <div class="region-cities">
+              <span class="city-tag">Shanghai</span>
+              <span class="city-tag">Guangzhou</span>
+              <span class="city-tag">Shenzhen</span>
+              <span class="city-tag">Beijing</span>
+            </div>
+            <div class="region-sectors">
+              <span class="sector">Financial Markets</span>
+              <span class="sector">Brokerage</span>
+              <span class="sector">Education</span>
+              <span class="sector">Corporate</span>
+            </div>
+            <div class="region-photo">
+              <img src="images/robbievee robbie vee where he works guangzhou award.webp" alt="Robbie Vee award ceremony Guangzhou Greater China" onerror="this.parentElement.style.background='#0d2147';this.style.display='none'">
+            </div>
+          </div>
+        </div>
+
+        <div class="region-block">
+          <div class="region-left reveal">
+            <div class="region-num">03</div>
+            <div class="region-name">Central Asia</div>
+            <div class="region-sub">Emerging Opportunity</div>
+          </div>
+          <div class="region-right reveal">
+            <p class="region-intro">Based in Tbilisi, Georgia and Dubai, UAE for contract work in 2022, Robbie has developed rare first-hand experience in Central Asian markets that most Western operators have never visited.</p>
+            <p class="region-body">Central Asia and the Gulf represent some of the world's fastest-growing financial and fintech markets. Robbie has built networks in these regions through direct presence, conference attendance, and the patient relationship-building that these cultures require.</p>
+            <div class="region-cities">
+              <span class="city-tag">Dubai</span>
+              <span class="city-tag">Tbilisi</span>
+              <span class="city-tag">Abu Dhabi</span>
+            </div>
+            <div class="region-sectors">
+              <span class="sector">Forex</span>
+              <span class="sector">Crypto</span>
+              <span class="sector">Financial Services</span>
+              <span class="sector">Investment</span>
+            </div>
+            <div class="region-photo">
+              <img src="images/robbievee robbie vee where he works dubai.webp" alt="Robbie Vee in Dubai UAE Middle East business operations" onerror="this.parentElement.style.background='#0d2147';this.style.display='none'">
+            </div>
+          </div>
+        </div>
+
+        <div class="region-block">
+          <div class="region-left reveal">
+            <div class="region-num">04</div>
+            <div class="region-name">Latin America</div>
+            <div class="region-sub">Growing Presence</div>
+          </div>
+          <div class="region-right reveal">
+            <p class="region-intro">Latin America is a region Robbie knows through conference circuit work and active partnership development, particularly in financial services and fintech.</p>
+            <p class="region-body">Countries like Colombia, Brazil, and Mexico represent enormous opportunity for international financial operators. Robbie has spoken at events including Money Expo Bogota and built relationships with key players across the region's growing fintech ecosystem.</p>
+            <div class="region-cities">
+              <span class="city-tag">Bogota</span>
+              <span class="city-tag">Mexico City</span>
+              <span class="city-tag">Sao Paulo</span>
+            </div>
+            <div class="region-sectors">
+              <span class="sector">Fintech</span>
+              <span class="sector">Forex</span>
+              <span class="sector">Financial Inclusion</span>
+            </div>
+            <div class="region-photo">
+              <img src="images/robbievee robbie vee formal business headshot.webp" alt="Robbie Vee Latin America business development operations" onerror="this.parentElement.style.background='#0d2147';this.style.display='none'">
+            </div>
+          </div>
+        </div>
+
+        <div class="region-block">
+          <div class="region-left reveal">
+            <div class="region-num">05</div>
+            <div class="region-name">Australia</div>
+            <div class="region-sub">Home Market</div>
+          </div>
+          <div class="region-right reveal">
+            <p class="region-intro">Australian by birth, global by choice. Robbie maintains strong connections in Australia across financial services, investment, and business development.</p>
+            <p class="region-body">He was based in Brisbane for over a decade before his global journey, building the financial and commercial foundations that underpin everything since. His Australian credibility opens doors internationally in ways that purely regional operators cannot match.</p>
+            <div class="region-cities">
+              <span class="city-tag">Brisbane</span>
+              <span class="city-tag">Sydney</span>
+              <span class="city-tag">Gold Coast</span>
+            </div>
+            <div class="region-sectors">
+              <span class="sector">Financial Services</span>
+              <span class="sector">Investment</span>
+              <span class="sector">Business Development</span>
+            </div>
+            <div class="region-photo">
+              <img src="images/robbievee robbie vee where he works sydney australia.webp" alt="Robbie Vee with Sydney Opera House Australia partnership operations" onerror="this.parentElement.style.background='#0d2147';this.style.display='none'">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sectors">
+      <div class="container">
+        <div class="sectors-header">
+          <span class="section-label reveal">Industry Sectors</span>
+          <h2 class="section-h2 reveal">Where he adds <span class="gold-text">most value.</span></h2>
+        </div>
+        <div class="sectors-grid">
+          <div class="sector-card reveal">
+            <span class="sector-icon">&#x1F4B1;</span>
+            <div class="sector-title">Financial Services and Forex</div>
+            <p class="sector-desc">20+ years across brokers, FX operators, and financial institutions globally. Deep understanding of how deals get structured and closed in this sector.</p>
+          </div>
+          <div class="sector-card reveal">
+            <span class="sector-icon">&#x1F4F1;</span>
+            <div class="sector-title">Fintech and Mobile Payments</div>
+            <p class="sector-desc">Experience spanning mobile payment infrastructure and fintech growth across Southeast Asia, where the industry is evolving faster than anywhere else on earth.</p>
+          </div>
+          <div class="sector-card reveal">
+            <span class="sector-icon">&#x1F393;</span>
+            <div class="sector-title">International Education</div>
+            <p class="sector-desc">Four years with Bradford Education Consultancy and direct teaching experience in Shanghai. A rare combination of institutional and classroom-level understanding.</p>
+          </div>
+          <div class="sector-card reveal">
+            <span class="sector-icon">&#x25C6;</span>
+            <div class="sector-title">Conscious Business</div>
+            <p class="sector-desc">Drawn to impact finance, ESG, and social enterprise. Organisations whose success is measured in outcomes beyond the balance sheet.</p>
+          </div>
+          <div class="sector-card reveal">
+            <span class="sector-icon">&#x1F91D;</span>
+            <div class="sector-title">Strategic Partnerships</div>
+            <p class="sector-desc">Cross-sector and cross-border partnership development. Building the alliances that create sustainable competitive advantage in new markets.</p>
+          </div>
+          <div class="sector-card reveal">
+            <span class="sector-icon">&#x1F3A4;</span>
+            <div class="sector-title">Conference and Speaking</div>
+            <p class="sector-desc">Regular keynote speaker at international financial summits. Brand representation through high-value events from London to Bogota to Guangzhou.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="container">
+        <span class="section-label reveal">In the Field</span>
+        <h2 class="section-h2 reveal" style="margin-bottom:2.5rem">From Chiang Mai <span class="gold-text">to everywhere.</span></h2>
+        <div class="gallery-grid">
+          <div class="gallery-item wide reveal">
+            <img src="images/robbievee robbie vee what he does guangzhou.webp" alt="Robbie Vee Guangzhou China business development gallery" onerror="this.style.display='none'">
+          </div>
+          <div class="gallery-item reveal">
+            <img src="images/robbievee robbie vee where he works gallery portrait.webp" alt="Robbie Vee professional portrait gallery photo" onerror="this.style.display='none'">
+          </div>
+          <div class="gallery-item reveal">
+            <img src="images/robbievee robbie vee where he works gallery shenzhen.webp" alt="Robbie Vee in Shenzhen China gallery photo" onerror="this.style.display='none'">
+          </div>
+          <div class="gallery-item reveal">
+            <img src="images/robbievee robbie vee where he works gallery chiang mai.webp" alt="Robbie Vee in Chiang Mai Thailand gallery photo" onerror="this.style.display='none'">
+          </div>
+          <div class="gallery-item reveal">
+            <img src="images/robbievee robbie vee where he works sydney australia.webp" alt="Robbie Vee in Sydney Australia gallery photo" onerror="this.style.display='none'">
+          </div>
+          <div class="gallery-item wide reveal">
+            <img src="images/robbievee robbie vee where he works gallery casual.webp" alt="Robbie Vee casual gallery portrait" onerror="this.style.display='none'">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta">
+      <div class="container">
+        <span class="section-label reveal">Your Market</span>
+        <h2 class="cta-h2 reveal">Is your market <span class="gold-text">on this list?</span></h2>
+        <p class="cta-sub reveal">If you are entering or expanding in any of these regions, Robbie Vee is the conversation you need to have first.</p>
+        <div class="reveal">
+          <a href="contact.html" class="btn-primary">Open a Door</a>
+          <a href="what-he-does.html" class="btn-ghost">What He Does</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-logo">Robbie <span>Vee</span></div>
+    <div>Connecting Worlds. Creating Impact.</div>
+    <div>robbievee.com</div>
+  </footer>
+
+  <script>
+    const canvas = document.getElementById('three-canvas');
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.z = 4;
+    const nodeCount = 80;
+    const positions = new Float32Array(nodeCount * 3);
+    for (let i = 0; i < nodeCount; i++) {
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos((Math.random() * 2) - 1);
+      const r = 1.5 + Math.random() * 0.8;
+      positions[i*3] = r * Math.sin(phi) * Math.cos(theta);
+      positions[i*3+1] = r * Math.sin(phi) * Math.sin(theta);
+      positions[i*3+2] = r * Math.cos(phi);
+    }
+    const nodeGeo = new THREE.BufferGeometry();
+    nodeGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const nodes = new THREE.Points(nodeGeo, new THREE.PointsMaterial({ size: 0.02, color: 0xc2aa69, transparent: true, opacity: 0.6 }));
+    scene.add(nodes);
+    const lp = [];
+    for (let i = 0; i < nodeCount; i++) for (let j = i+1; j < nodeCount; j++) { const dx=positions[i*3]-positions[j*3],dy=positions[i*3+1]-positions[j*3+1],dz=positions[i*3+2]-positions[j*3+2]; if(Math.sqrt(dx*dx+dy*dy+dz*dz)<1.2) lp.push(positions[i*3],positions[i*3+1],positions[i*3+2],positions[j*3],positions[j*3+1],positions[j*3+2]); }
+    const lg = new THREE.BufferGeometry(); lg.setAttribute('position', new THREE.BufferAttribute(new Float32Array(lp), 3));
+    scene.add(new THREE.LineSegments(lg, new THREE.LineBasicMaterial({ color: 0xc2aa69, transparent: true, opacity: 0.07 })));
+    let mx = 0, my = 0;
+    document.addEventListener('mousemove', e => { mx = (e.clientX/window.innerWidth-0.5)*0.4; my = (e.clientY/window.innerHeight-0.5)*0.3; });
+    (function animate() { requestAnimationFrame(animate); nodes.rotation.y += 0.0008; nodes.rotation.x += 0.0003; camera.position.x += (mx-camera.position.x)*0.02; camera.position.y += (-my-camera.position.y)*0.02; camera.lookAt(scene.position); renderer.render(scene, camera); })();
+    window.addEventListener('resize', () => { camera.aspect = window.innerWidth/window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth, window.innerHeight); });
+
+    gsap.registerPlugin(ScrollTrigger);
+    const tl = gsap.timeline({ delay: 0.2 });
+    tl.to('#pageLabel', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' })
+      .to('#pageH1', { opacity: 1, y: 0, duration: 1, ease: 'power4.out' }, '-=0.4')
+      .to('#pageDivider', { opacity: 1, duration: 0.8, ease: 'power3.out' }, '-=0.5');
+    gsap.utils.toArray('.reveal').forEach(el => {
+      gsap.fromTo(el, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' } });
+    });
+
+    const cursor = document.getElementById('cursor');
+    const cursorRing = document.getElementById('cursorRing');
+    let cx = 0, cy = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { cx = e.clientX; cy = e.clientY; cursor.style.left = cx+'px'; cursor.style.top = cy+'px'; });
+    (function animRing() { rx += (cx-rx)*0.12; ry += (cy-ry)*0.12; cursorRing.style.left = rx+'px'; cursorRing.style.top = ry+'px'; requestAnimationFrame(animRing); })();
+    document.querySelectorAll('a,button,.sector-card,.region-photo,.gallery-item,.city-tag').forEach(el => { el.addEventListener('mouseenter', () => cursor.classList.add('expanded')); el.addEventListener('mouseleave', () => cursor.classList.remove('expanded')); });
+    window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60));
+    document.getElementById('navToggle').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+    document.getElementById('mobileClose').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+    document.querySelectorAll('.mobile-menu a').forEach(a => a.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open')));
+  </script>
+</body>
+</html>

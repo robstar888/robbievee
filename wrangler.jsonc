@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+
+  "name": "robbievee",
+  "compatibility_date": "2026-04-10",
+
+  "assets": {
+    "directory": "./"
+  }
+}

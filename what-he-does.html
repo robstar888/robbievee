@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What He Does - Robbie Vee</title>
+  <meta name="description" content="Strategic partnerships, business development, market entry, and cross-cultural deal-making. How Robbie Vee works and what he delivers.">
+  <meta property="og:title" content="What He Does - Robbie Vee">
+  <meta property="og:description" content="Strategic partnerships, business development, market entry, and cross-cultural deal-making. How Robbie Vee works and what he delivers.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://robbievee.com/what-he-does.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Robbie Vee",
+    "jobTitle": "Global Brand Ambassador",
+    "affiliation": { "@type": "Organization", "name": "MH Markets" },
+    "knowsAbout": ["Business Development", "Strategic Partnerships", "Market Entry", "Cross-Cultural Deal-Making", "Fintech", "Southeast Asia", "Latin America"],
+    "description": "Business development and partnerships professional with 20+ years of experience across 20+ countries, specialising in emerging markets."
+  }
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg-deep: #070f1e; --bg-navy: #0d2147; --bg-mid: #112f61;
+      --gold: #c2aa69; --gold-light: #d4c088;
+      --gold-glow: rgba(194,170,105,0.25); --gold-glow-strong: rgba(194,170,105,0.45);
+      --text-main: #ffffff; --text-dim: #b0c4de; --text-muted: #7a90b0;
+      --glass: rgba(255,255,255,0.04); --glass-border: rgba(194,170,105,0.18);
+      --ease-cinema: cubic-bezier(0.4,0,0.2,1);
+    }
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--bg-deep); color: var(--text-main); font-family: 'Inter', sans-serif; overflow-x: hidden; cursor: none; }
+    ::-webkit-scrollbar { width: 3px; } ::-webkit-scrollbar-track { background: var(--bg-deep); } ::-webkit-scrollbar-thumb { background: var(--gold); }
+    .cursor { position: fixed; width: 12px; height: 12px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width 0.3s, height 0.3s; }
+    .cursor.expanded { width: 36px; height: 36px; background: transparent; border: 1.5px solid var(--gold); box-shadow: 0 0 20px var(--gold-glow-strong); }
+    .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(194,170,105,0.4); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.5rem 3rem; display: flex; align-items: center; justify-content: space-between; transition: background 0.6s, padding 0.4s; }
+    nav.scrolled { background: rgba(7,15,30,0.92); backdrop-filter: blur(20px); padding: 1rem 3rem; border-bottom: 1px solid rgba(194,170,105,0.12); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; letter-spacing: 0.08em; color: var(--text-main); text-decoration: none; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: none; padding: 0.5rem; background: none; border: none; }
+    .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--text-main); }
+
+    .page-hero { position: relative; min-height: 60vh; display: flex; align-items: flex-end; overflow: hidden; padding-bottom: 5rem; }
+    #three-canvas { position: absolute; inset: 0; z-index: 0; }
+    .page-hero-inner { position: relative; z-index: 2; max-width: 1300px; margin: 0 auto; padding: 8rem 3rem 0; width: 100%; }
+    .page-label { font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 1rem; opacity: 0; }
+    .page-h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 700; line-height: 1.05; opacity: 0; }
+    .page-h1 em { font-style: italic; background: linear-gradient(135deg, #fff 0%, var(--gold) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .page-divider { width: 60px; height: 2px; background: var(--gold); margin-top: 2rem; opacity: 0; }
+
+    section { position: relative; }
+    .container { max-width: 1300px; margin: 0 auto; padding: 0 3rem; }
+    .section-label { font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; display: block; }
+    .section-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 600; line-height: 1.15; margin-bottom: 1.5rem; }
+    .gold-text { background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .reveal { opacity: 0; transform: translateY(40px); }
+
+    /* Intro strip */
+    #intro { padding: 7rem 0; background: var(--bg-navy); }
+    .intro-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+    .intro-lead { font-size: 1.1rem; line-height: 1.85; color: var(--text-dim); margin-bottom: 1.5rem; }
+    .intro-body { font-size: 0.9rem; line-height: 1.9; color: var(--text-muted); }
+    .intro-callout { background: var(--glass); border-left: 2px solid var(--gold); padding: 1.5rem 2rem; margin-top: 2rem; font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; color: var(--text-dim); line-height: 1.55; }
+
+    /* Services deep dive */
+    #services { padding: 7rem 0; background: var(--bg-deep); }
+    .service-block { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start; padding: 4rem 0; border-top: 1px solid var(--glass-border); }
+    .service-block:last-child { border-bottom: 1px solid var(--glass-border); }
+    .service-num { font-family: 'Cormorant Garamond', serif; font-size: 5rem; font-weight: 700; color: rgba(194,170,105,0.15); line-height: 1; }
+    .service-tag { font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: block; }
+    .service-h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; margin-bottom: 1.2rem; }
+    .service-body { font-size: 0.92rem; line-height: 1.9; color: var(--text-dim); margin-bottom: 1.5rem; }
+    .service-points { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+    .service-points li { display: flex; align-items: flex-start; gap: 1rem; font-size: 0.88rem; line-height: 1.6; color: var(--text-dim); }
+    .service-points li::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 6px; }
+
+    /* How he works */
+    #process { padding: 7rem 0; background: var(--bg-navy); }
+    .process-header { text-align: center; margin-bottom: 4rem; }
+    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .process-step { background: var(--glass); border: 1px solid var(--glass-border); padding: 2rem 1.5rem; position: relative; transition: border-color 0.3s, transform 0.3s; }
+    .process-step:hover { border-color: rgba(194,170,105,0.35); transform: translateY(-4px); }
+    .step-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 700; color: rgba(194,170,105,0.2); line-height: 1; margin-bottom: 1rem; }
+    .step-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.7rem; }
+    .step-desc { font-size: 0.82rem; line-height: 1.75; color: var(--text-dim); }
+    .step-connector { position: absolute; right: -0.75rem; top: 2rem; width: 1.5rem; height: 1px; background: var(--gold); z-index: 2; }
+    .process-step:last-child .step-connector { display: none; }
+
+    /* Who he works with */
+    #who { padding: 7rem 0; background: var(--bg-deep); }
+    .who-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .who-body { font-size: 0.95rem; line-height: 1.9; color: var(--text-dim); margin-bottom: 2rem; }
+    .who-list { display: flex; flex-direction: column; gap: 1rem; }
+    .who-item { display: flex; align-items: center; gap: 1.2rem; padding: 1.2rem 1.5rem; background: var(--glass); border: 1px solid var(--glass-border); transition: border-color 0.3s; }
+    .who-item:hover { border-color: rgba(194,170,105,0.35); }
+    .who-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex-shrink: 0; box-shadow: 0 0 8px var(--gold); }
+    .who-name { font-size: 0.9rem; font-weight: 500; }
+    .who-img-wrap { position: relative; }
+    .who-img { width: 100%; aspect-ratio: 4/5; overflow: hidden; }
+    .who-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; filter: grayscale(20%); transition: filter 0.5s; }
+    .who-img:hover img { filter: grayscale(0%); }
+    .corner { position: absolute; width: 28px; height: 28px; border-color: var(--gold); border-style: solid; }
+    .corner.tl { top: -8px; left: -8px; border-width: 2px 0 0 2px; }
+    .corner.br { bottom: -8px; right: -8px; border-width: 0 2px 2px 0; }
+
+    /* CTA */
+    #cta { padding: 7rem 0; background: var(--bg-navy); text-align: center; }
+    .cta-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; margin-bottom: 1rem; }
+    .cta-sub { font-size: 1rem; color: var(--text-dim); margin-bottom: 2.5rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .btn-primary { display: inline-block; background: var(--gold); color: var(--bg-deep); padding: 0.9rem 2.2rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; cursor: none; transition: box-shadow 0.4s, transform 0.3s; }
+    .btn-primary:hover { box-shadow: 0 0 40px var(--gold-glow-strong); transform: translateY(-2px); }
+    .btn-ghost { display: inline-block; background: transparent; color: var(--gold); padding: 0.9rem 2.2rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--glass-border); cursor: none; transition: border-color 0.3s, background 0.3s; margin-left: 1rem; }
+    .btn-ghost:hover { border-color: var(--gold); background: rgba(194,170,105,0.07); }
+
+    footer { padding: 2rem 3rem; border-top: 1px solid rgba(194,170,105,0.1); display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; color: var(--text-muted); }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--text-dim); }
+    .footer-logo span { color: var(--gold); }
+    .mobile-menu { position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; background: rgba(7,15,30,0.97); backdrop-filter: blur(20px); z-index: 200; display: flex; flex-direction: column; justify-content: center; padding: 3rem 2.5rem; border-left: 1px solid var(--glass-border); transition: right 0.4s var(--ease-cinema); }
+    .mobile-menu.open { right: 0; }
+    .mobile-menu .nav-links { display: flex; flex-direction: column; gap: 2rem; }
+    .mobile-menu .nav-links a { font-size: 1rem; }
+    .mobile-close { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.5rem; color: var(--gold); cursor: none; background: none; border: none; padding: 0.5rem; }
+
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; } nav.scrolled { padding: 0.9rem 1.5rem; }
+      .nav-links { display: none; } .nav-toggle { display: flex; }
+      .container { padding: 0 1.5rem; }
+      .intro-cols { grid-template-columns: 1fr; gap: 2.5rem; }
+      .service-block { grid-template-columns: 1fr; gap: 2rem; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .step-connector { display: none; }
+      .who-inner { grid-template-columns: 1fr; gap: 3rem; }
+      #intro, #services, #process, #who, #cta { padding: 5rem 0; }
+      footer { flex-direction: column; gap: 0.8rem; text-align: center; padding: 1.5rem; }
+    }
+    @media (max-width: 540px) {
+      .process-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">Robbie <span>Vee</span></a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="what-he-does.html" class="active">What He Does</a></li>
+      <li><a href="where-he-works.html">Where He Works</a></li>
+      <li><a href="contact.html">Connect</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose">&#x2715;</button>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="what-he-does.html">What He Does</a></li>
+      <li><a href="where-he-works.html">Where He Works</a></li>
+      <li><a href="contact.html">Connect</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <section class="page-hero">
+      <canvas id="three-canvas"></canvas>
+      <div class="page-hero-inner">
+        <span class="page-label" id="pageLabel">The Operator's Toolkit</span>
+        <h1 class="page-h1" id="pageH1">What He Does.<br><em>How He Does It.</em></h1>
+        <div class="page-divider" id="pageDivider"></div>
+      </div>
+    </section>
+
+    <section id="intro">
+      <div class="container">
+        <div class="intro-cols">
+          <div>
+            <span class="section-label reveal">The Approach</span>
+            <h2 class="section-h2 reveal">Business development the <span class="gold-text">human way.</span></h2>
+          </div>
+          <div>
+            <p class="intro-lead reveal">Robbie works with organisations expanding across emerging markets who need someone on the ground. Not a consultant with a slide deck, but a trusted operator who can open doors, build relationships, and get things moving.</p>
+            <p class="intro-body reveal">He operates where business is human. He understands how deals really get done across different cultures, and how to navigate the nuances that don't show up in strategy decks. His toolkit is built on relationships, not systems.</p>
+            <div class="intro-callout reveal">
+              "Deals happen in rooms, over dinners, and across cultures. Technology is the tool. The human is the product."
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="service-block">
+          <div class="reveal">
+            <div class="service-num">01</div>
+          </div>
+          <div class="reveal">
+            <span class="service-tag">Core Service</span>
+            <h3 class="service-h3">Strategic Partnerships</h3>
+            <p class="service-body">Identifying, building, and securing the relationships that move business forward. Built on trust, aligned interests, and long-term thinking. Robbie does not chase partnerships - he attracts them through credibility and presence.</p>
+            <ul class="service-points">
+              <li>Identifying strategic fit between organisations and individuals</li>
+              <li>Structuring mutually beneficial partnership agreements</li>
+              <li>Navigating cultural and commercial expectations across markets</li>
+              <li>Long-term relationship stewardship beyond the initial deal</li>
+              <li>Conference and event representation to build brand authority</li>
+            </ul>
+          </div>
+        </div>
+        <div class="service-block">
+          <div class="reveal">
+            <div class="service-num">02</div>
+          </div>
+          <div class="reveal">
+            <span class="service-tag">Core Service</span>
+            <h3 class="service-h3">Business Development</h3>
+            <p class="service-body">Opening new revenue lines and expanding footprint in markets where relationships matter more than presentations. Robbie has spent 20+ years inside the rooms where these decisions are made.</p>
+            <ul class="service-points">
+              <li>New market pipeline development and opportunity mapping</li>
+              <li>Institutional and broker relationship building</li>
+              <li>Brand positioning in fintech, financial services, and adjacent industries</li>
+              <li>Revenue-generating introductions and deal facilitation</li>
+              <li>Regional growth strategy aligned with global brand direction</li>
+            </ul>
+          </div>
+        </div>
+        <div class="service-block">
+          <div class="reveal">
+            <div class="service-num">03</div>
+          </div>
+          <div class="reveal">
+            <span class="service-tag">Core Service</span>
+            <h3 class="service-h3">Market Entry</h3>
+            <p class="service-body">Southeast Asia, Latin America, Central Asia. On-the-ground expertise in emerging markets where context is everything. Robbie has lived and worked in the markets he advises on - not just visited them.</p>
+            <ul class="service-points">
+              <li>Market readiness assessment and entry strategy</li>
+              <li>Local regulatory and cultural landscape navigation</li>
+              <li>Key stakeholder mapping and introduction</li>
+              <li>Partnership ecosystem development in-market</li>
+              <li>Ongoing market presence and brand representation</li>
+            </ul>
+          </div>
+        </div>
+        <div class="service-block">
+          <div class="reveal">
+            <div class="service-num">04</div>
+          </div>
+          <div class="reveal">
+            <span class="service-tag">Core Service</span>
+            <h3 class="service-h3">Cross-Cultural Deal-Making</h3>
+            <p class="service-body">Understanding how deals really get done across different cultures. The nuances that don't appear in strategy decks. How to show respect, build credibility, and navigate the unspoken rules of each market.</p>
+            <ul class="service-points">
+              <li>Cultural intelligence briefings for leadership teams</li>
+              <li>Cross-cultural communication and negotiation facilitation</li>
+              <li>Trust-building protocols for key markets (China, SEA, LATAM)</li>
+              <li>High-value event representation and networking</li>
+              <li>Bridge-building between technical teams and local partners</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="process-header">
+          <span class="section-label reveal">How It Works</span>
+          <h2 class="section-h2 reveal">From conversation <span class="gold-text">to connection.</span></h2>
+        </div>
+        <div class="process-grid">
+          <div class="process-step reveal">
+            <div class="step-num">01</div>
+            <div class="step-title">Open Conversation</div>
+            <p class="step-desc">A direct, honest discussion about where your organisation is going and what you actually need. No templates. No proposals before understanding.</p>
+            <div class="step-connector"></div>
+          </div>
+          <div class="process-step reveal">
+            <div class="step-num">02</div>
+            <div class="step-title">Clarity on Fit</div>
+            <p class="step-desc">Robbie only works with organisations where he can genuinely add value. If the fit is right, he commits fully. If not, he says so plainly.</p>
+            <div class="step-connector"></div>
+          </div>
+          <div class="process-step reveal">
+            <div class="step-num">03</div>
+            <div class="step-title">On the Ground</div>
+            <p class="step-desc">Active market presence. Meetings, conferences, introductions, and relationship development across the relevant geography.</p>
+            <div class="step-connector"></div>
+          </div>
+          <div class="process-step reveal">
+            <div class="step-num">04</div>
+            <div class="step-title">Lasting Outcomes</div>
+            <p class="step-desc">The goal is never a single deal. It is a network of trust that compounds over time and continues to create value long after the initial engagement.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="who">
+      <div class="container">
+        <div class="who-inner">
+          <div>
+            <span class="section-label reveal">Who He Works With</span>
+            <h2 class="section-h2 reveal">Organisations ready to <span class="gold-text">move markets.</span></h2>
+            <p class="who-body reveal">Robbie works best with organisations that understand the value of human relationships in business - and are patient enough to build them properly. He is not a short-term fix. He is a long-term asset.</p>
+            <div class="who-list">
+              <div class="who-item reveal"><div class="who-dot"></div><span class="who-name">Fintech companies entering Southeast Asia, LATAM or Central Asia</span></div>
+              <div class="who-item reveal"><div class="who-dot"></div><span class="who-name">Brokers and financial institutions scaling globally</span></div>
+              <div class="who-item reveal"><div class="who-dot"></div><span class="who-name">Conscious businesses and impact finance organisations</span></div>
+              <div class="who-item reveal"><div class="who-dot"></div><span class="who-name">Education institutions expanding internationally</span></div>
+              <div class="who-item reveal"><div class="who-dot"></div><span class="who-name">Leaders navigating cross-cultural complexity</span></div>
+              <div class="who-item reveal"><div class="who-dot"></div><span class="who-name">Social enterprises seeking global partnerships</span></div>
+            </div>
+          </div>
+          <div class="who-img-wrap reveal">
+            <div class="who-img">
+              <img src="images/robbievee robbie vee where he works guangzhou award.webp" alt="Robbie Vee receiving award in Guangzhou China Greater China" onerror="this.parentElement.style.background='linear-gradient(135deg,#112f61,#0a162b)';this.style.display='none'">
+            </div>
+            <div class="corner tl"></div>
+            <div class="corner br"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta">
+      <div class="container">
+        <span class="section-label reveal">Start Here</span>
+        <h2 class="cta-h2 reveal">Ready to open <span class="gold-text">a door?</span></h2>
+        <p class="cta-sub reveal">A single conversation can change the trajectory of a market entry. Start with one.</p>
+        <div class="reveal">
+          <a href="contact.html" class="btn-primary">Get in Touch</a>
+          <a href="where-he-works.html" class="btn-ghost">Where He Works</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-logo">Robbie <span>Vee</span></div>
+    <div>Connecting Worlds. Creating Impact.</div>
+    <div>robbievee.com</div>
+  </footer>
+
+  <script>
+    const canvas = document.getElementById('three-canvas');
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.z = 4;
+    const nodeCount = 80;
+    const positions = new Float32Array(nodeCount * 3);
+    for (let i = 0; i < nodeCount; i++) {
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos((Math.random() * 2) - 1);
+      const r = 1.5 + Math.random() * 0.8;
+      positions[i*3] = r * Math.sin(phi) * Math.cos(theta);
+      positions[i*3+1] = r * Math.sin(phi) * Math.sin(theta);
+      positions[i*3+2] = r * Math.cos(phi);
+    }
+    const nodeGeo = new THREE.BufferGeometry();
+    nodeGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    scene.add(new THREE.Points(nodeGeo, new THREE.PointsMaterial({ size: 0.02, color: 0xc2aa69, transparent: true, opacity: 0.6 })));
+    const lp = [];
+    for (let i = 0; i < nodeCount; i++) for (let j = i+1; j < nodeCount; j++) { const dx=positions[i*3]-positions[j*3],dy=positions[i*3+1]-positions[j*3+1],dz=positions[i*3+2]-positions[j*3+2]; if(Math.sqrt(dx*dx+dy*dy+dz*dz)<1.2) lp.push(positions[i*3],positions[i*3+1],positions[i*3+2],positions[j*3],positions[j*3+1],positions[j*3+2]); }
+    const lg = new THREE.BufferGeometry(); lg.setAttribute('position', new THREE.BufferAttribute(new Float32Array(lp), 3));
+    scene.add(new THREE.LineSegments(lg, new THREE.LineBasicMaterial({ color: 0xc2aa69, transparent: true, opacity: 0.07 })));
+    const nodes = scene.children[0];
+    let mx = 0, my = 0;
+    document.addEventListener('mousemove', e => { mx = (e.clientX/window.innerWidth-0.5)*0.4; my = (e.clientY/window.innerHeight-0.5)*0.3; });
+    (function animate() { requestAnimationFrame(animate); nodes.rotation.y += 0.0008; nodes.rotation.x += 0.0003; camera.position.x += (mx-camera.position.x)*0.02; camera.position.y += (-my-camera.position.y)*0.02; camera.lookAt(scene.position); renderer.render(scene, camera); })();
+    window.addEventListener('resize', () => { camera.aspect = window.innerWidth/window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth, window.innerHeight); });
+
+    gsap.registerPlugin(ScrollTrigger);
+    const tl = gsap.timeline({ delay: 0.2 });
+    tl.to('#pageLabel', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' })
+      .to('#pageH1', { opacity: 1, y: 0, duration: 1, ease: 'power4.out' }, '-=0.4')
+      .to('#pageDivider', { opacity: 1, duration: 0.8, ease: 'power3.out' }, '-=0.5');
+    gsap.utils.toArray('.reveal').forEach(el => {
+      gsap.fromTo(el, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' } });
+    });
+
+    const cursor = document.getElementById('cursor');
+    const cursorRing = document.getElementById('cursorRing');
+    let cx = 0, cy = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { cx = e.clientX; cy = e.clientY; cursor.style.left = cx+'px'; cursor.style.top = cy+'px'; });
+    (function animRing() { rx += (cx-rx)*0.12; ry += (cy-ry)*0.12; cursorRing.style.left = rx+'px'; cursorRing.style.top = ry+'px'; requestAnimationFrame(animRing); })();
+    document.querySelectorAll('a,button,.process-step,.who-item,.service-block').forEach(el => { el.addEventListener('mouseenter', () => cursor.classList.add('expanded')); el.addEventListener('mouseleave', () => cursor.classList.remove('expanded')); });
+    window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60));
+    document.getElementById('navToggle').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+    document.getElementById('mobileClose').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+    document.querySelectorAll('.mobile-menu a').forEach(a => a.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open')));
+  </script>
+</body>
+</html>

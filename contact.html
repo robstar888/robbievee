@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connect with Robbie Vee - Open a Door</title>
+  <meta name="description" content="Connect with Robbie Vee. If you're expanding into emerging markets and need someone who understands how deals actually happen, start here.">
+  <meta property="og:title" content="Connect with Robbie Vee - Open a Door">
+  <meta property="og:description" content="Connect with Robbie Vee. If you're expanding into emerging markets and need someone who understands how deals actually happen, start here.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://robbievee.com/contact.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Robbie Vee",
+    "jobTitle": "Global Brand Ambassador",
+    "affiliation": { "@type": "Organization", "name": "MH Markets" },
+    "knowsAbout": ["Business Development", "Strategic Partnerships", "Market Entry", "Cross-Cultural Deal-Making", "Fintech", "Southeast Asia", "Latin America"],
+    "description": "Business development and partnerships professional with 20+ years of experience across 20+ countries, specialising in emerging markets."
+  }
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg-deep: #070f1e; --bg-navy: #0d2147; --bg-mid: #112f61;
+      --gold: #c2aa69; --gold-light: #d4c088;
+      --gold-glow: rgba(194,170,105,0.25); --gold-glow-strong: rgba(194,170,105,0.45);
+      --text-main: #ffffff; --text-dim: #b0c4de; --text-muted: #7a90b0;
+      --glass: rgba(255,255,255,0.04); --glass-border: rgba(194,170,105,0.18);
+      --ease-cinema: cubic-bezier(0.4,0,0.2,1);
+    }
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--bg-deep); color: var(--text-main); font-family: 'Inter', sans-serif; overflow-x: hidden; cursor: none; }
+    ::-webkit-scrollbar { width: 3px; } ::-webkit-scrollbar-track { background: var(--bg-deep); } ::-webkit-scrollbar-thumb { background: var(--gold); }
+    .cursor { position: fixed; width: 12px; height: 12px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width 0.3s, height 0.3s; }
+    .cursor.expanded { width: 36px; height: 36px; background: transparent; border: 1.5px solid var(--gold); box-shadow: 0 0 20px var(--gold-glow-strong); }
+    .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(194,170,105,0.4); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.5rem 3rem; display: flex; align-items: center; justify-content: space-between; transition: background 0.6s, padding 0.4s; }
+    nav.scrolled { background: rgba(7,15,30,0.92); backdrop-filter: blur(20px); padding: 1rem 3rem; border-bottom: 1px solid rgba(194,170,105,0.12); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; letter-spacing: 0.08em; color: var(--text-main); text-decoration: none; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: none; padding: 0.5rem; background: none; border: none; }
+    .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--text-main); }
+
+    /* Full-height contact layout */
+    .contact-wrap {
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    /* Left panel: Three.js background + quote */
+    .contact-left {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 5rem 4rem;
+      overflow: hidden;
+    }
+    #three-canvas { position: absolute; inset: 0; z-index: 0; }
+    .contact-left-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(7,15,30,0.6) 0%, rgba(7,15,30,0.2) 100%);
+      z-index: 1;
+    }
+    .contact-left-content { position: relative; z-index: 2; transform: translateY(-6rem); }
+    .contact-eyebrow { font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 1.5rem; opacity: 0; }
+    .contact-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4vw, 4rem); font-weight: 700; line-height: 1.1; margin-bottom: 2rem; opacity: 0; }
+    .contact-headline em { font-style: italic; background: linear-gradient(135deg, #fff 0%, var(--gold) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .contact-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; color: var(--text-dim); line-height: 1.6; padding-left: 1.2rem; border-left: 2px solid var(--gold); max-width: 420px; opacity: 0; }
+    .contact-meta { margin-top: 3rem; display: flex; flex-direction: column; gap: 1rem; opacity: 0; }
+    .meta-item { display: flex; align-items: center; gap: 1rem; }
+    .meta-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+    .meta-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+    .meta-value { font-size: 0.88rem; color: var(--text-dim); }
+
+    /* Right panel: form */
+    .contact-right {
+      background: var(--bg-navy);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 4rem;
+    }
+    .form-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 600; margin-bottom: 0.5rem; opacity: 0; }
+    .form-sub { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 2.5rem; line-height: 1.7; opacity: 0; }
+
+    form { display: flex; flex-direction: column; gap: 1.2rem; opacity: 0; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+    .form-group label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--glass-border);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      padding: 0.85rem 1rem;
+      outline: none;
+      transition: border-color 0.3s, background 0.3s;
+      cursor: none;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+      background: rgba(194,170,105,0.04);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--text-muted); }
+    .form-group select option { background: var(--bg-navy); color: var(--text-main); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-submit {
+      background: var(--gold);
+      color: var(--bg-deep);
+      border: none;
+      padding: 1rem 2.5rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: none;
+      transition: box-shadow 0.4s, transform 0.3s;
+      align-self: flex-start;
+      position: relative;
+      overflow: hidden;
+    }
+    .form-submit::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.15);
+      transform: translateX(-100%);
+      transition: transform 0.4s;
+    }
+    .form-submit:hover::before { transform: translateX(0); }
+    .form-submit:hover { box-shadow: 0 0 40px var(--gold-glow-strong); transform: translateY(-2px); }
+    .form-note { font-size: 0.72rem; color: var(--text-muted); line-height: 1.6; margin-top: 0.5rem; }
+
+    /* Success state */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+    .form-success.visible { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+    .success-icon { font-size: 3rem; color: var(--gold); }
+    .success-h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; }
+    .success-p { font-size: 0.9rem; color: var(--text-dim); line-height: 1.7; max-width: 360px; }
+
+    /* Direct links section */
+    #links { padding: 6rem 0; background: var(--bg-deep); }
+    .container { max-width: 1300px; margin: 0 auto; padding: 0 3rem; }
+    .section-label { font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; display: block; }
+    .section-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 600; line-height: 1.2; margin-bottom: 3rem; }
+    .gold-text { background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .reveal { opacity: 0; transform: translateY(30px); }
+    .links-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .link-card { background: var(--glass); border: 1px solid var(--glass-border); padding: 2.5rem 2rem; display: flex; flex-direction: column; gap: 1rem; text-decoration: none; color: inherit; transition: border-color 0.3s, transform 0.3s; position: relative; overflow: hidden; cursor: none; }
+    .link-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0; transition: opacity 0.4s; }
+    .link-card:hover { border-color: rgba(194,170,105,0.4); transform: translateY(-4px); }
+    .link-card:hover::before { opacity: 1; }
+    .link-icon { font-size: 2rem; }
+    .link-platform { font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); }
+    .link-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; }
+    .link-desc { font-size: 0.82rem; line-height: 1.7; color: var(--text-dim); flex: 1; }
+    .link-arrow { font-size: 1.2rem; color: var(--gold); transition: transform 0.3s; align-self: flex-start; }
+    .link-card:hover .link-arrow { transform: translateX(6px); }
+
+    footer { padding: 2rem 3rem; border-top: 1px solid rgba(194,170,105,0.1); display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; color: var(--text-muted); }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--text-dim); }
+    .footer-logo span { color: var(--gold); }
+    .mobile-menu { position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; background: rgba(7,15,30,0.97); backdrop-filter: blur(20px); z-index: 200; display: flex; flex-direction: column; justify-content: center; padding: 3rem 2.5rem; border-left: 1px solid var(--glass-border); transition: right 0.4s var(--ease-cinema); }
+    .mobile-menu.open { right: 0; }
+    .mobile-menu .nav-links { display: flex; flex-direction: column; gap: 2rem; }
+    .mobile-menu .nav-links a { font-size: 1rem; }
+    .mobile-close { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.5rem; color: var(--gold); cursor: none; background: none; border: none; padding: 0.5rem; }
+
+    @media (max-width: 1024px) {
+      .contact-wrap { grid-template-columns: 1fr; }
+      .contact-left { min-height: 50vh; padding: 7rem 2rem 3rem; }
+      .contact-right { padding: 3rem 2rem; }
+      .links-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; } nav.scrolled { padding: 0.9rem 1.5rem; }
+      .nav-links { display: none; } .nav-toggle { display: flex; }
+      .container { padding: 0 1.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .links-grid { grid-template-columns: 1fr; }
+      #links { padding: 4rem 0; }
+      footer { flex-direction: column; gap: 0.8rem; text-align: center; padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">Robbie <span>Vee</span></a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="what-he-does.html">What He Does</a></li>
+      <li><a href="where-he-works.html">Where He Works</a></li>
+      <li><a href="contact.html" class="active">Connect</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose">&#x2715;</button>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="what-he-does.html">What He Does</a></li>
+      <li><a href="where-he-works.html">Where He Works</a></li>
+      <li><a href="contact.html">Connect</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <div class="contact-wrap">
+      <!-- Left: Background + Statement -->
+      <div class="contact-left">
+        <canvas id="three-canvas"></canvas>
+        <div class="contact-left-overlay"></div>
+        <div class="contact-left-content">
+          <span class="contact-eyebrow" id="el1">Open a Door</span>
+          <h1 class="contact-headline" id="el2">The right conversation<br><em>changes everything.</em></h1>
+          <blockquote class="contact-quote" id="el3">
+            "Deals happen in rooms. This is the room. Walk in."
+          </blockquote>
+          <div class="contact-meta" id="el4">
+            <div class="meta-item">
+              <div class="meta-dot"></div>
+              <div>
+                <div class="meta-label">Based in</div>
+                <div class="meta-value">Chiang Mai, Thailand</div>
+              </div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-dot"></div>
+              <div>
+                <div class="meta-label">Active in</div>
+                <div class="meta-value">SEA, China, Central Asia, LATAM, Australia</div>
+              </div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-dot"></div>
+              <div>
+                <div class="meta-label">Role at</div>
+                <div class="meta-value">MH Markets - Global Brand Ambassador</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="contact-right">
+        <h2 class="form-title" id="el5">Start the conversation.</h2>
+        <p class="form-sub" id="el6">No templates, no auto-responses. Robbie reads every message personally. Tell him what you are working on and why you think there is a fit.</p>
+
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="fname" placeholder="Robert" required>
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" placeholder="Smith" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="robert@company.com" required>
+          </div>
+          <div class="form-group">
+            <label for="company">Company or Organisation</label>
+            <input type="text" id="company" name="company" placeholder="Company name">
+          </div>
+          <div class="form-group">
+            <label for="market">Primary Market of Interest</label>
+            <select id="market" name="market">
+              <option value="" disabled selected>Select a region</option>
+              <option value="sea">Southeast Asia</option>
+              <option value="china">Greater China</option>
+              <option value="central-asia">Central Asia / Middle East</option>
+              <option value="latam">Latin America</option>
+              <option value="australia">Australia</option>
+              <option value="global">Global / Multiple Regions</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">What Are You Working On?</label>
+            <textarea id="message" name="message" placeholder="Tell Robbie about your organisation, what you are trying to achieve, and why you think he can help." required></textarea>
+          </div>
+          <button type="submit" class="form-submit magnetic-item">Send Message</button>
+          <p class="form-note">Your message goes directly to Robbie. He responds personally, usually within 48 hours.</p>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <div class="success-icon">&#x2713;</div>
+          <h3 class="success-h3">Message Sent.</h3>
+          <p class="success-p">Robbie will read this personally and get back to you. Good things start with a single conversation.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Direct links -->
+    <section id="links">
+      <div class="container">
+        <span class="section-label reveal">Or Reach Out Directly</span>
+        <h2 class="section-h2 reveal">Other ways to <span class="gold-text">connect.</span></h2>
+        <div class="links-grid">
+          <a href="https://www.linkedin.com/in/robbievee/" target="_blank" rel="noopener" class="link-card reveal">
+            <div class="link-icon">&#x1F517;</div>
+            <div class="link-platform">LinkedIn</div>
+            <div class="link-title">Connect on LinkedIn</div>
+            <p class="link-desc">Follow Robbie's global journey, read his thoughts on business, culture, and connection, and send a direct message.</p>
+            <div class="link-arrow">&#x2192;</div>
+          </a>
+          <a href="#" id="whatsappLink" class="link-card reveal">
+            <div class="link-icon">&#x1F4AC;</div>
+            <div class="link-platform">WhatsApp</div>
+            <div class="link-title">Message on WhatsApp</div>
+            <p class="link-desc">Send a quick message directly to Robbie on WhatsApp. Available for real-time conversation across all time zones.</p>
+            <div class="link-arrow">&#x2192;</div>
+          </a>
+          <a href="where-he-works.html" class="link-card reveal">
+            <div class="link-icon">&#x1F30D;</div>
+            <div class="link-platform">Markets</div>
+            <div class="link-title">Check Where He Works</div>
+            <p class="link-desc">Not sure if Robbie operates in your market? Review the full breakdown of regions, cities, and sectors.</p>
+            <div class="link-arrow">&#x2192;</div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-logo">Robbie <span>Vee</span></div>
+    <div>Connecting Worlds. Creating Impact.</div>
+    <div>robbievee.com</div>
+  </footer>
+
+  <script>
+    // Three.js
+    const canvas = document.getElementById('three-canvas');
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    const leftPanel = document.querySelector('.contact-left');
+    renderer.setSize(leftPanel.offsetWidth || window.innerWidth / 2, window.innerHeight);
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(60, (leftPanel.offsetWidth || window.innerWidth/2) / window.innerHeight, 0.1, 100);
+    camera.position.z = 4;
+    const nodeCount = 100;
+    const positions = new Float32Array(nodeCount * 3);
+    for (let i = 0; i < nodeCount; i++) {
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos((Math.random() * 2) - 1);
+      const r = 1.5 + Math.random() * 0.9;
+      positions[i*3] = r * Math.sin(phi) * Math.cos(theta);
+      positions[i*3+1] = r * Math.sin(phi) * Math.sin(theta);
+      positions[i*3+2] = r * Math.cos(phi);
+    }
+    const nodeGeo = new THREE.BufferGeometry();
+    nodeGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const nodes = new THREE.Points(nodeGeo, new THREE.PointsMaterial({ size: 0.022, color: 0xc2aa69, transparent: true, opacity: 0.7 }));
+    scene.add(nodes);
+    const lp = [];
+    for (let i = 0; i < nodeCount; i++) for (let j = i+1; j < nodeCount; j++) { const dx=positions[i*3]-positions[j*3],dy=positions[i*3+1]-positions[j*3+1],dz=positions[i*3+2]-positions[j*3+2]; if(Math.sqrt(dx*dx+dy*dy+dz*dz)<1.1) lp.push(positions[i*3],positions[i*3+1],positions[i*3+2],positions[j*3],positions[j*3+1],positions[j*3+2]); }
+    const lg = new THREE.BufferGeometry(); lg.setAttribute('position', new THREE.BufferAttribute(new Float32Array(lp), 3));
+    scene.add(new THREE.LineSegments(lg, new THREE.LineBasicMaterial({ color: 0xc2aa69, transparent: true, opacity: 0.09 })));
+    let mx = 0, my = 0;
+    document.addEventListener('mousemove', e => { mx = (e.clientX/(leftPanel.offsetWidth||window.innerWidth/2)-0.5)*0.4; my = (e.clientY/window.innerHeight-0.5)*0.3; });
+    (function animate() { requestAnimationFrame(animate); nodes.rotation.y += 0.001; nodes.rotation.x += 0.0004; camera.position.x += (mx-camera.position.x)*0.02; camera.position.y += (-my-camera.position.y)*0.02; camera.lookAt(scene.position); renderer.render(scene, camera); })();
+    window.addEventListener('resize', () => {
+      const w = leftPanel.offsetWidth || window.innerWidth/2;
+      camera.aspect = w / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, window.innerHeight);
+    });
+
+    // GSAP hero entrance
+    const tl = gsap.timeline({ delay: 0.3 });
+    tl.to('#el1', { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' })
+      .to('#el2', { opacity: 1, y: 0, duration: 1, ease: 'power4.out' }, '-=0.3')
+      .to('#el3', { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' }, '-=0.5')
+      .to('#el4', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.5')
+      .to('#el5', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.6')
+      .to('#el6', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.5')
+      .to('form', { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' }, '-=0.5');
+
+    // Scroll reveals
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { gsap.to(e.target, { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Magnetic button
+    const submitBtn = document.querySelector('.magnetic-item');
+    if (submitBtn) {
+      submitBtn.addEventListener('mousemove', e => {
+        const rect = submitBtn.getBoundingClientRect();
+        const x = (e.clientX - rect.left - rect.width / 2) * 0.3;
+        const y = (e.clientY - rect.top - rect.height / 2) * 0.3;
+        gsap.to(submitBtn, { x, y, duration: 0.3, ease: 'power2.out' });
+      });
+      submitBtn.addEventListener('mouseleave', () => gsap.to(submitBtn, { x: 0, y: 0, duration: 0.6, ease: 'elastic.out(1,0.5)' }));
+    }
+
+    // Form submit - send to WhatsApp
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const fname = document.getElementById('fname').value;
+      const lname = document.getElementById('lname').value;
+      const email = document.getElementById('email').value;
+      const company = document.getElementById('company').value;
+      const market = document.getElementById('market').value;
+      const message = document.getElementById('message').value;
+
+      const whatsappMessage = `Hi Robbie. My name is ${fname} ${lname}. Email: ${email}. Company: ${company}. Market: ${market}. Message: ${message}`;
+      const num = '66807244255';
+      const whatsappUrl = `https://wa.me/${num}?text=${encodeURIComponent(whatsappMessage)}`;
+
+      window.open(whatsappUrl, '_blank');
+    });
+
+    // Cursor
+    const cursor = document.getElementById('cursor');
+    const cursorRing = document.getElementById('cursorRing');
+    let cx = 0, cy = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { cx = e.clientX; cy = e.clientY; cursor.style.left = cx+'px'; cursor.style.top = cy+'px'; });
+    (function animRing() { rx += (cx-rx)*0.12; ry += (cy-ry)*0.12; cursorRing.style.left = rx+'px'; cursorRing.style.top = ry+'px'; requestAnimationFrame(animRing); })();
+    document.querySelectorAll('a,button,input,select,textarea,.link-card').forEach(el => { el.addEventListener('mouseenter', () => cursor.classList.add('expanded')); el.addEventListener('mouseleave', () => cursor.classList.remove('expanded')); });
+
+    // WhatsApp link handler
+    document.getElementById('whatsappLink').addEventListener('click', function(e) {
+      e.preventDefault();
+      const num = '66807244255';
+      window.open('https://wa.me/' + num, '_blank');
+    });
+
+    // Nav
+    window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60));
+    document.getElementById('navToggle').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+    document.getElementById('mobileClose').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+    document.querySelectorAll('.mobile-menu a').forEach(a => a.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open')));
+  </script>
+</body>
+</html>

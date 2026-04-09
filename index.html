@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robbie Vee - Global Relationships Ambassador</title>
+  <meta name="description" content="Robbie Vee builds bridges across emerging markets through genuine human connection and deep cultural understanding. 20+ years, 20+ countries.">
+  <meta property="og:title" content="Robbie Vee - Connecting Worlds. Creating Impact.">
+  <meta property="og:description" content="Business development and partnerships professional specialising in Southeast Asia, Latin America, and Central Asia.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://robbievee.com/index.html">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Robbie Vee",
+    "jobTitle": "Global Brand Ambassador",
+    "affiliation": { "@type": "Organization", "name": "MH Markets" },
+    "knowsAbout": ["Business Development", "Strategic Partnerships", "Market Entry", "Cross-Cultural Deal-Making", "Fintech", "Southeast Asia", "Latin America"],
+    "description": "Business development and partnerships professional with 20+ years of experience across 20+ countries, specialising in emerging markets."
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-deep: #070f1e;
+      --bg-navy: #0d2147;
+      --bg-mid: #112f61;
+      --gold: #c2aa69;
+      --gold-light: #d4c088;
+      --gold-glow: rgba(194, 170, 105, 0.25);
+      --gold-glow-strong: rgba(194, 170, 105, 0.45);
+      --text-main: #ffffff;
+      --text-dim: #b0c4de;
+      --text-muted: #7a90b0;
+      --glass: rgba(255, 255, 255, 0.04);
+      --glass-border: rgba(194, 170, 105, 0.18);
+      --ease-cinema: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg-deep);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* Custom cursor */
+    .cursor {
+      position: fixed;
+      width: 12px;
+      height: 12px;
+      background: var(--gold);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s, height 0.3s, box-shadow 0.3s;
+      mix-blend-mode: normal;
+    }
+    .cursor.expanded {
+      width: 36px;
+      height: 36px;
+      background: transparent;
+      border: 1.5px solid var(--gold);
+      box-shadow: 0 0 20px var(--gold-glow-strong);
+    }
+    .cursor-ring {
+      position: fixed;
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(194, 170, 105, 0.4);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: width 0.4s, height 0.4s;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--bg-deep); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); }
+
+    /* Nav */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.6s var(--ease-cinema), padding 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(7, 15, 30, 0.92);
+      backdrop-filter: blur(20px);
+      padding: 1rem 3rem;
+      border-bottom: 1px solid rgba(194, 170, 105, 0.12);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* Hero */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    #three-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 7rem 3rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+    }
+    .hero-h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+    }
+    .hero-h1 em {
+      font-style: italic;
+      background: linear-gradient(135deg, #fff 0%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-dim);
+      max-width: 460px;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--bg-deep);
+      padding: 0.9rem 2.2rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: none;
+      transition: box-shadow 0.4s, transform 0.3s;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      box-shadow: 0 0 40px var(--gold-glow-strong);
+      transform: translateY(-2px);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--gold);
+      padding: 0.9rem 2.2rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--glass-border);
+      cursor: none;
+      transition: border-color 0.3s, background 0.3s;
+      display: inline-block;
+    }
+    .btn-ghost:hover {
+      border-color: var(--gold);
+      background: rgba(194, 170, 105, 0.07);
+    }
+
+    /* Orb visual panel */
+    .hero-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      height: 420px;
+      opacity: 0;
+    }
+    .orb-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid var(--glass-border);
+      animation: orbit-rotate linear infinite;
+    }
+    .orb-ring:nth-child(1) { width: 300px; height: 300px; animation-duration: 20s; }
+    .orb-ring:nth-child(2) { width: 380px; height: 380px; animation-duration: 30s; animation-direction: reverse; opacity: 0.5; }
+    .orb-ring:nth-child(3) { width: 460px; height: 460px; animation-duration: 45s; opacity: 0.25; }
+    @keyframes orbit-rotate {
+      from { transform: rotate(0deg) rotateX(60deg); }
+      to { transform: rotate(360deg) rotateX(60deg); }
+    }
+    .orb-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      position: absolute;
+      top: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 12px var(--gold);
+    }
+    .orb-core {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, rgba(194, 170, 105, 0.25) 0%, rgba(17, 47, 97, 0.6) 60%, transparent 100%);
+      border: 1px solid rgba(194, 170, 105, 0.3);
+      box-shadow: 0 0 60px rgba(194, 170, 105, 0.12), inset 0 0 40px rgba(194, 170, 105, 0.08);
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .orb-initials {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+    }
+    .hero-stats {
+      position: absolute;
+      bottom: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 2.5rem;
+      white-space: nowrap;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scroll-pulse 2s ease-in-out infinite;
+    }
+    @keyframes scroll-pulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.2); }
+    }
+
+    /* Section base */
+    section { position: relative; }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+    /* Philosophy */
+    #philosophy {
+      padding: 8rem 0;
+      background: var(--bg-navy);
+    }
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+    .section-h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .gold-text {
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .philosophy-intro {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--text-dim);
+      max-width: 620px;
+      margin-bottom: 4rem;
+    }
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .glass-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      padding: 2.2rem 2rem;
+      backdrop-filter: blur(20px);
+      transition: border-color 0.4s, transform 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .glass-card:hover { border-color: rgba(194, 170, 105, 0.4); transform: translateY(-4px); }
+    .glass-card:hover::before { opacity: 1; }
+    .card-icon {
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+    .glass-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+    .glass-card p {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--text-dim);
+    }
+
+    /* What He Does */
+    #services {
+      padding: 8rem 0;
+      background: var(--bg-deep);
+    }
+    .services-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+      margin-bottom: 4rem;
+    }
+    .services-desc {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-dim);
+    }
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto auto;
+      gap: 1.5rem;
+    }
+    .bento-item {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.4s, border-color 0.4s;
+    }
+    .bento-item.featured {
+      background: linear-gradient(135deg, rgba(17, 47, 97, 0.6) 0%, rgba(194, 170, 105, 0.06) 100%);
+      border-color: rgba(194, 170, 105, 0.3);
+    }
+    .bento-item:hover { background: rgba(194, 170, 105, 0.05); border-color: rgba(194, 170, 105, 0.35); }
+    .bento-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 700;
+      color: rgba(194, 170, 105, 0.12);
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      line-height: 1;
+      transition: color 0.4s;
+    }
+    .bento-item:hover .bento-num { color: rgba(194, 170, 105, 0.22); }
+    .bento-tag {
+      font-size: 0.62rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .bento-item h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .bento-item p {
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: var(--text-dim);
+    }
+
+    /* Track Record */
+    #track-record {
+      padding: 8rem 0;
+      background: var(--bg-navy);
+    }
+    .track-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .track-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--text-dim);
+      margin-bottom: 2rem;
+      padding-left: 1.5rem;
+      border-left: 2px solid var(--gold);
+    }
+    .track-byline {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding-left: 1.5rem;
+    }
+    .regions-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .region-item {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 1.2rem 1.5rem;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .region-item:hover { border-color: rgba(194, 170, 105, 0.35); background: rgba(194, 170, 105, 0.04); }
+    .region-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      box-shadow: 0 0 8px var(--gold);
+    }
+    .region-name {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-main);
+      flex: 1;
+    }
+    .region-detail {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* About Robbie */
+    #about {
+      padding: 8rem 0;
+      background: var(--bg-deep);
+    }
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-img-frame {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      filter: grayscale(20%) contrast(1.05);
+      transition: filter 0.6s;
+    }
+    .about-img-frame:hover img { filter: grayscale(0%) contrast(1.1); }
+    .about-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(7, 15, 30, 0.5) 0%, transparent 50%);
+    }
+    .about-corner {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-color: var(--gold);
+      border-style: solid;
+    }
+    .about-corner.tl { top: -8px; left: -8px; border-width: 2px 0 0 2px; }
+    .about-corner.br { bottom: -8px; right: -8px; border-width: 0 2px 2px 0; }
+    .about-badge {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      background: var(--gold);
+      color: var(--bg-deep);
+      padding: 1rem 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.3;
+    }
+    .about-badge span { display: block; font-size: 1.6rem; line-height: 1.1; }
+    .about-content .section-h2 { margin-bottom: 1.5rem; }
+    .about-lead {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--text-dim);
+      margin-bottom: 1.5rem;
+    }
+    .about-body {
+      font-size: 0.9rem;
+      line-height: 1.85;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+    }
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2.5rem;
+    }
+    .about-tag {
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--glass-border);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    /* Contact */
+    #contact {
+      padding: 9rem 0;
+      background: linear-gradient(to bottom, var(--bg-navy) 0%, var(--bg-deep) 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #contact::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(194, 170, 105, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .contact-inner { position: relative; z-index: 2; }
+    .contact-h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+    }
+    .contact-sub {
+      font-size: 1rem;
+      color: var(--text-dim);
+      margin-bottom: 3rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .contact-btn-wrap { margin-bottom: 3rem; }
+    .btn-open-door {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--bg-deep);
+      padding: 1.1rem 3rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: none;
+      transition: box-shadow 0.4s, transform 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-open-door::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.15);
+      transform: translateX(-100%);
+      transition: transform 0.4s;
+    }
+    .btn-open-door:hover::before { transform: translateX(0); }
+    .btn-open-door:hover {
+      box-shadow: 0 0 60px var(--gold-glow-strong), 0 0 120px rgba(194, 170, 105, 0.12);
+      transform: translateY(-3px);
+    }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .contact-link {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .contact-link:hover { color: var(--gold); }
+
+    /* Footer */
+    footer {
+      padding: 2rem 3rem;
+      border-top: 1px solid rgba(194, 170, 105, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--text-dim);
+    }
+    .footer-logo span { color: var(--gold); }
+
+    /* Reveal animations */
+    .reveal { opacity: 0; transform: translateY(40px); }
+
+    /* Mobile hamburger */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: none;
+      padding: 0.5rem;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--text-main);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; }
+      nav.scrolled { padding: 0.9rem 1.5rem; }
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        padding: 6rem 1.5rem 3rem;
+        text-align: center;
+      }
+      .hero-sub { max-width: 100%; }
+      .hero-ctas { justify-content: center; }
+      .hero-visual { height: 280px; }
+      .hero-stats { gap: 1.5rem; }
+      .orb-ring:nth-child(1) { width: 200px; height: 200px; }
+      .orb-ring:nth-child(2) { width: 260px; height: 260px; }
+      .orb-ring:nth-child(3) { display: none; }
+      .philosophy-grid { grid-template-columns: 1fr; }
+      .services-header { grid-template-columns: 1fr; gap: 1.5rem; }
+      .bento-grid { grid-template-columns: 1fr; }
+      .track-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .about-badge { right: 0; bottom: -1rem; }
+      .container { padding: 0 1.5rem; }
+      #philosophy, #services, #track-record, #about, #contact { padding: 5rem 0; }
+      footer { flex-direction: column; gap: 0.8rem; text-align: center; padding: 1.5rem; }
+    }
+
+    @media (max-width: 540px) {
+      .hero-stats { flex-direction: column; gap: 1rem; }
+      .contact-h2 { font-size: 2rem; }
+    }
+
+    /* Mobile nav menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 280px;
+      height: 100vh;
+      background: rgba(7, 15, 30, 0.97);
+      backdrop-filter: blur(20px);
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem 2.5rem;
+      border-left: 1px solid var(--glass-border);
+      transition: right 0.4s var(--ease-cinema);
+    }
+    .mobile-menu.open { right: 0; }
+    .mobile-menu .nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .mobile-menu .nav-links a { font-size: 1rem; }
+    .mobile-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 1.5rem;
+      color: var(--gold);
+      cursor: none;
+      background: none;
+      border: none;
+      padding: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Nav -->
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">Robbie <span>Vee</span></a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="what-he-does.html">What He Does</a></li>
+      <li><a href="where-he-works.html">Where He Works</a></li>
+      <li><a href="contact.html">Connect</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose">&#x2715;</button>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="what-he-does.html">What He Does</a></li>
+      <li><a href="where-he-works.html">Where He Works</a></li>
+      <li><a href="contact.html">Connect</a></li>
+    </ul>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="hero">
+      <canvas id="three-canvas"></canvas>
+      <div class="hero-inner">
+        <div class="hero-content">
+          <span class="hero-eyebrow" id="heroEyebrow">Global Relationships Ambassador</span>
+          <h1 class="hero-h1" id="heroH1">Connecting Worlds.<br><em>Creating Impact.</em></h1>
+          <p class="hero-sub" id="heroSub">Robbie Vee builds bridges across emerging markets through genuine human connection and deep cultural understanding. Not a consultant. A trusted operator who opens doors.</p>
+          <div class="hero-ctas" id="heroCtas">
+            <a href="contact.html" class="btn-primary magnetic-item">Open a Door</a>
+            <a href="#services" class="btn-ghost magnetic-item">What He Does</a>
+          </div>
+        </div>
+        <div class="hero-visual" id="heroVisual">
+          <div class="orb-ring"><div class="orb-dot"></div></div>
+          <div class="orb-ring"><div class="orb-dot" style="top:auto;bottom:-4px;"></div></div>
+          <div class="orb-ring"><div class="orb-dot" style="top:50%;left:-4px;transform:translateY(-50%);"></div></div>
+          <div class="orb-core">
+            <span class="orb-initials">RV</span>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-num">20+</div>
+              <div class="stat-label">Years</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">20+</div>
+              <div class="stat-label">Countries</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">4</div>
+              <div class="stat-label">Continents</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section id="philosophy">
+      <div class="container">
+        <span class="section-label reveal">The Foundation</span>
+        <h2 class="section-h2 reveal">Technology is the tool.<br><span class="gold-text">Connection is the core.</span></h2>
+        <p class="philosophy-intro reveal">In an era of AI, blockchain, and digital everything, Robbie Vee stands for something simple: deals happen in rooms, over dinners, and across cultures. The tools serve the human, not the other way around.</p>
+        <div class="philosophy-grid">
+          <div class="glass-card reveal">
+            <span class="card-icon">&#x26F3;</span>
+            <h3>The Human Edge</h3>
+            <p>Relationships built on trust, cultural respect, and real presence. No pitch deck replaces a handshake in the right room.</p>
+          </div>
+          <div class="glass-card reveal">
+            <span class="card-icon">&#x1F30D;</span>
+            <h3>Market Intelligence</h3>
+            <p>Navigating the nuances of SEA, LATAM, and Central Asia with 20 years of ground experience. Pattern recognition that only time can build.</p>
+          </div>
+          <div class="glass-card reveal">
+            <span class="card-icon">&#x25C6;</span>
+            <h3>Conscious Growth</h3>
+            <p>Aligning financial success with impact. Drawn to conscious business, education, and social enterprise where outcomes go beyond profit.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES (What He Does) -->
+    <section id="services">
+      <div class="container">
+        <div class="services-header">
+          <div>
+            <span class="section-label reveal">What He Does</span>
+            <h2 class="section-h2 reveal">The Operator's<br><span class="gold-text">Toolkit</span></h2>
+          </div>
+          <p class="services-desc reveal">Robbie works with organisations expanding across emerging markets who need someone on the ground. Not a consultant, but a trusted operator who can open doors, build relationships, and get things moving.</p>
+        </div>
+        <div class="bento-grid">
+          <div class="bento-item featured reveal">
+            <span class="bento-num">01</span>
+            <span class="bento-tag">Partnerships</span>
+            <h3>Strategic Partnerships</h3>
+            <p>Identifying and securing the relationships that move business forward. Built on trust, aligned interests, and long-term thinking.</p>
+          </div>
+          <div class="bento-item reveal">
+            <span class="bento-num">02</span>
+            <span class="bento-tag">Growth</span>
+            <h3>Business Development</h3>
+            <p>Opening new revenue lines and expanding footprint in markets where relationships matter more than presentations.</p>
+          </div>
+          <div class="bento-item reveal">
+            <span class="bento-num">03</span>
+            <span class="bento-tag">Expansion</span>
+            <h3>Market Entry</h3>
+            <p>Southeast Asia, Latin America, Central Asia. On-the-ground expertise in emerging markets where context is everything.</p>
+          </div>
+          <div class="bento-item featured reveal">
+            <span class="bento-num">04</span>
+            <span class="bento-tag">Bridge Building</span>
+            <h3>Cross-Cultural Deal-Making</h3>
+            <p>Understanding how deals really get done across different cultures. Navigating the nuances that don't show up in strategy decks.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACK RECORD -->
+    <section id="track-record">
+      <div class="container">
+        <div class="track-inner">
+          <div class="track-left">
+            <span class="section-label reveal">20+ Years. 20+ Countries.</span>
+            <blockquote class="track-quote reveal">
+              "Most people talk about partnerships. Robbie builds them."
+            </blockquote>
+            <p class="track-byline reveal">From MH Markets to Dubai to Shanghai</p>
+            <br><br>
+            <p class="reveal" style="font-size:0.9rem;line-height:1.85;color:var(--text-dim);">Global Brand Ambassador at MH Markets. Formerly Head of Engagement ASEAN at MultiBank Group, VP Asia Pacific, and Director of International Business Development across four continents. Regular conference speaker and industry representative across global financial markets.</p>
+          </div>
+          <div class="track-right">
+            <div class="regions-list">
+              <div class="region-item reveal">
+                <div class="region-dot"></div>
+                <span class="region-name">Southeast Asia</span>
+                <span class="region-detail">Primary base. Deep local network.</span>
+              </div>
+              <div class="region-item reveal">
+                <div class="region-dot"></div>
+                <span class="region-name">Greater China</span>
+                <span class="region-detail">Shanghai, Guangzhou, Shenzhen</span>
+              </div>
+              <div class="region-item reveal">
+                <div class="region-dot"></div>
+                <span class="region-name">Central Asia</span>
+                <span class="region-detail">Tbilisi, Dubai and beyond</span>
+              </div>
+              <div class="region-item reveal">
+                <div class="region-dot"></div>
+                <span class="region-name">Latin America</span>
+                <span class="region-detail">Bogota and emerging hubs</span>
+              </div>
+              <div class="region-item reveal">
+                <div class="region-dot"></div>
+                <span class="region-name">Australia</span>
+                <span class="region-detail">Brisbane, Sydney. Home market.</span>
+              </div>
+              <div class="region-item reveal">
+                <div class="region-dot"></div>
+                <span class="region-name">Global Events</span>
+                <span class="region-detail">Speaker. Dubai. London. Bogota.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="about-inner">
+          <div class="about-visual reveal">
+            <div class="about-img-frame">
+              <img src="images/robbievee robbie vee about profile.webp" alt="Robbie Vee global brand ambassador profile photo" onerror="this.parentElement.style.background='linear-gradient(135deg, #112f61, #0a162b)';this.style.display='none'">
+              <div class="about-img-overlay"></div>
+            </div>
+            <div class="about-corner tl"></div>
+            <div class="about-corner br"></div>
+            <div class="about-badge">
+              <span>RV</span>
+              Global Navigator
+            </div>
+          </div>
+          <div class="about-content">
+            <span class="section-label reveal">The Founder Block</span>
+            <h2 class="section-h2 reveal">Conscious Entrepreneur.<br><span class="gold-text">Global Operator.</span></h2>
+            <p class="about-lead reveal">Robbie Vee is an Australian business development professional based in Chiang Mai, Thailand. He has spent over two decades building relationships and opening doors across emerging markets.</p>
+            <p class="about-body reveal">Not through cold outreach or polished pitch decks, but through genuine human connection, trust, and deep cultural understanding. From teaching business English in Shanghai to representing MH Markets across four continents, his journey has been defined by showing up in person and earning trust the slow way.</p>
+            <div class="about-tags reveal">
+              <span class="about-tag">Fintech</span>
+              <span class="about-tag">Impact Finance</span>
+              <span class="about-tag">Education</span>
+              <span class="about-tag">Social Enterprise</span>
+              <span class="about-tag">Conference Speaker</span>
+              <span class="about-tag">Conscious Business</span>
+            </div>
+            <div class="reveal">
+              <a href="contact.html" class="btn-primary">Connect with Robbie</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container contact-inner">
+        <span class="section-label reveal">Open a Door</span>
+        <h2 class="contact-h2 reveal">Ready to build<br><span class="gold-text">something real?</span></h2>
+        <p class="contact-sub reveal">If your organisation is expanding into emerging markets and you need someone who understands how deals actually happen, let's talk.</p>
+        <div class="contact-btn-wrap reveal">
+          <a href="contact.html" class="btn-open-door magnetic-item">Get in Touch</a>
+        </div>
+        <div class="contact-links reveal">
+          <a href="https://www.linkedin.com/in/robbievee/" target="_blank" rel="noopener" class="contact-link">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-logo">Robbie <span>Vee</span></div>
+    <div>Connecting Worlds. Creating Impact.</div>
+    <div>robbievee.com</div>
+  </footer>
+
+  <script>
+    /* ========================================
+       THREE.JS: Global Pulse Network
+       ======================================== */
+    const canvas = document.getElementById('three-canvas');
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.z = 4;
+
+    // Particle nodes
+    const nodeCount = 120;
+    const positions = new Float32Array(nodeCount * 3);
+    const nodeVelocities = [];
+
+    for (let i = 0; i < nodeCount; i++) {
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos((Math.random() * 2) - 1);
+      const r = 1.5 + Math.random() * 0.8;
+      positions[i * 3]     = r * Math.sin(phi) * Math.cos(theta);
+      positions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+      positions[i * 3 + 2] = r * Math.cos(phi);
+      nodeVelocities.push({ theta: Math.random() * 0.002 - 0.001, phi: Math.random() * 0.001 - 0.0005 });
+    }
+
+    const nodeGeo = new THREE.BufferGeometry();
+    nodeGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const nodeMat = new THREE.PointsMaterial({ size: 0.022, color: 0xc2aa69, transparent: true, opacity: 0.75 });
+    const nodes = new THREE.Points(nodeGeo, nodeMat);
+    scene.add(nodes);
+
+    // Connection lines between nearby nodes
+    const linePositions = [];
+    const MAX_DIST = 1.2;
+    for (let i = 0; i < nodeCount; i++) {
+      for (let j = i + 1; j < nodeCount; j++) {
+        const dx = positions[i*3] - positions[j*3];
+        const dy = positions[i*3+1] - positions[j*3+1];
+        const dz = positions[i*3+2] - positions[j*3+2];
+        const dist = Math.sqrt(dx*dx + dy*dy + dz*dz);
+        if (dist < MAX_DIST) {
+          linePositions.push(positions[i*3], positions[i*3+1], positions[i*3+2]);
+          linePositions.push(positions[j*3], positions[j*3+1], positions[j*3+2]);
+        }
+      }
+    }
+    const lineGeo = new THREE.BufferGeometry();
+    lineGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(linePositions), 3));
+    const lineMat = new THREE.LineBasicMaterial({ color: 0xc2aa69, transparent: true, opacity: 0.08 });
+    const lines = new THREE.LineSegments(lineGeo, lineMat);
+    scene.add(lines);
+
+    // Ambient sphere glow
+    const glowGeo = new THREE.SphereGeometry(1.4, 32, 32);
+    const glowMat = new THREE.MeshBasicMaterial({ color: 0x0d2147, transparent: true, opacity: 0.15, wireframe: false });
+    const glow = new THREE.Mesh(glowGeo, glowMat);
+    scene.add(glow);
+
+    let mouseX = 0, mouseY = 0;
+    document.addEventListener('mousemove', e => {
+      mouseX = (e.clientX / window.innerWidth - 0.5) * 0.4;
+      mouseY = (e.clientY / window.innerHeight - 0.5) * 0.3;
+    });
+
+    function animateThree() {
+      requestAnimationFrame(animateThree);
+      nodes.rotation.y += 0.0008;
+      nodes.rotation.x += 0.0003;
+      lines.rotation.y = nodes.rotation.y;
+      lines.rotation.x = nodes.rotation.x;
+      camera.position.x += (mouseX - camera.position.x) * 0.02;
+      camera.position.y += (-mouseY - camera.position.y) * 0.02;
+      camera.lookAt(scene.position);
+      renderer.render(scene, camera);
+    }
+    animateThree();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    /* ========================================
+       GSAP ANIMATIONS
+       ======================================== */
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero entrance
+    const heroTl = gsap.timeline({ delay: 0.3 });
+    heroTl
+      .to('#heroEyebrow', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' })
+      .to('#heroH1', { opacity: 1, y: 0, duration: 1, ease: 'power4.out' }, '-=0.4')
+      .to('#heroSub', { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' }, '-=0.6')
+      .to('#heroCtas', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.5')
+      .to('#heroVisual', { opacity: 1, x: 0, duration: 1.2, ease: 'power4.out' }, '-=0.9');
+
+    // Scroll reveals
+    gsap.utils.toArray('.reveal').forEach(el => {
+      gsap.fromTo(el,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 88%',
+            toggleActions: 'play none none none'
+          }
+        }
+      );
+    });
+
+    /* ========================================
+       CUSTOM CURSOR
+       ======================================== */
+    const cursor = document.getElementById('cursor');
+    const cursorRing = document.getElementById('cursorRing');
+    let cursorX = 0, cursorY = 0;
+    let ringX = 0, ringY = 0;
+
+    document.addEventListener('mousemove', e => {
+      cursorX = e.clientX;
+      cursorY = e.clientY;
+      cursor.style.left = cursorX + 'px';
+      cursor.style.top = cursorY + 'px';
+    });
+
+    function animateCursorRing() {
+      ringX += (cursorX - ringX) * 0.12;
+      ringY += (cursorY - ringY) * 0.12;
+      cursorRing.style.left = ringX + 'px';
+      cursorRing.style.top = ringY + 'px';
+      requestAnimationFrame(animateCursorRing);
+    }
+    animateCursorRing();
+
+    document.querySelectorAll('a, button, .glass-card, .bento-item, .region-item').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('expanded'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('expanded'));
+    });
+
+    /* ========================================
+       MAGNETIC BUTTONS
+       ======================================== */
+    document.querySelectorAll('.magnetic-item').forEach(btn => {
+      btn.addEventListener('mousemove', e => {
+        const rect = btn.getBoundingClientRect();
+        const x = (e.clientX - rect.left - rect.width / 2) * 0.35;
+        const y = (e.clientY - rect.top - rect.height / 2) * 0.35;
+        gsap.to(btn, { x, y, duration: 0.35, ease: 'power2.out' });
+      });
+      btn.addEventListener('mouseleave', () => {
+        gsap.to(btn, { x: 0, y: 0, duration: 0.6, ease: 'elastic.out(1, 0.5)' });
+      });
+    });
+
+    /* ========================================
+       NAV SCROLL STATE
+       ======================================== */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    /* ========================================
+       MOBILE MENU
+       ======================================== */
+    const toggle = document.getElementById('navToggle');
+    const menu = document.getElementById('mobileMenu');
+    const close = document.getElementById('mobileClose');
+
+    toggle.addEventListener('click', () => menu.classList.add('open'));
+    close.addEventListener('click', () => menu.classList.remove('open'));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+  </script>
+</body>
+</html>
