@@ -60,3 +60,6 @@ env/
 
 # Miscellaneous
 .claude/settings.local.json
+
+# Project-specific
+md/
