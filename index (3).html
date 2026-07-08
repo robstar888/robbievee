@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robbie Vee</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231c1613'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' text-anchor='middle' font-size='30' fill='%23c99a3f'%3ERV%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Robbie Vee. Cross-cultural connector across SE Asia and emerging markets. Partnerships, business development and genuine human connection. Based in Chiang Mai.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Karla:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teak:#1c1613;
+  --teak-soft:#26201b;
+  --ivory:#efe7da;
+  --ivory-dim:#c9bfae;
+  --brass:#c99a3f;
+  --brass-soft:rgba(201,154,63,.35);
+  --jade:#5e8f7c;
+  --maxw:1060px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--teak);
+  color:var(--ivory);
+  font-family:'Karla',sans-serif;
+  font-weight:300;
+  line-height:1.75;
+  font-size:1.06rem;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--brass);color:var(--teak)}
+h1,h2,h3,.serif{font-family:'Marcellus',serif;font-weight:400;line-height:1.15}
+a{color:var(--brass);text-decoration:none}
+a:hover{color:var(--ivory)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ---------- nav ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:linear-gradient(to bottom,rgba(28,22,19,.92),rgba(28,22,19,0));
+  backdrop-filter:blur(2px);
+}
+.nav-inner{
+  max-width:var(--maxw);margin:0 auto;padding:20px 24px;
+  display:flex;justify-content:space-between;align-items:baseline;
+}
+.nav-name{font-family:'Marcellus',serif;font-size:1.05rem;letter-spacing:.14em;color:var(--ivory)}
+.nav-links{display:flex;gap:26px;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase}
+.nav-links a{color:var(--ivory-dim)}
+.nav-links a:hover{color:var(--brass)}
+@media(max-width:640px){.nav-links{display:none}}
+
+/* ---------- hero ---------- */
+header{
+  min-height:100svh;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;text-align:center;
+}
+#cube{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:min(140vw,900px);height:min(140vw,900px);
+  opacity:.5;pointer-events:none;
+}
+.hero-inner{position:relative;z-index:2;padding:0 24px}
+.hero-eyebrow{
+  font-size:.78rem;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--brass);margin-bottom:26px;
+}
+h1{
+  font-size:clamp(3rem,10vw,6.4rem);
+  letter-spacing:.06em;
+  color:var(--ivory);
+}
+.hero-line{
+  margin-top:26px;
+  font-family:'Marcellus',serif;
+  font-size:clamp(1.15rem,3vw,1.6rem);
+  color:var(--ivory-dim);
+  letter-spacing:.04em;
+}
+.hero-scroll{
+  position:absolute;bottom:34px;left:50%;transform:translateX(-50%);
+  font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ivory-dim);
+}
+
+/* ---------- shared section ---------- */
+section{padding:110px 0;position:relative}
+.eyebrow{
+  font-size:.76rem;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--brass);margin-bottom:22px;
+}
+h2{font-size:clamp(1.9rem,4.5vw,2.9rem);margin-bottom:34px;color:var(--ivory)}
+.rule{width:56px;height:1px;background:var(--brass);margin:0 0 44px}
+p+p{margin-top:1.35em}
+.lede{font-size:1.22rem;line-height:1.7;color:var(--ivory)}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:64px;align-items:start}
+@media(max-width:820px){.cols{grid-template-columns:1fr;gap:36px}}
+.sticky-side{position:sticky;top:120px}
+@media(max-width:820px){.sticky-side{position:static}}
+em{font-style:italic}
+
+/* ---------- photo slots ---------- */
+.photo{
+  width:100%;aspect-ratio:4/5;object-fit:cover;
+  border:1px solid var(--brass-soft);
+  display:block;
+  filter:saturate(.9);
+}
+.photo-wide{aspect-ratio:16/10}
+.photo-cap{
+  margin-top:12px;font-size:.78rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ivory-dim);
+}
+
+/* ---------- story ---------- */
+#story{background:var(--teak)}
+
+/* ---------- work ---------- */
+#work{background:var(--teak-soft)}
+.work-list{margin-top:56px;display:grid;gap:0}
+.work-item{
+  padding:34px 0;border-top:1px solid rgba(201,154,63,.18);
+  display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.6fr);gap:28px;
+}
+.work-item:last-child{border-bottom:1px solid rgba(201,154,63,.18)}
+.work-item h3{font-size:1.35rem;color:var(--ivory);letter-spacing:.02em}
+.work-item p{color:var(--ivory-dim)}
+@media(max-width:680px){.work-item{grid-template-columns:1fr;gap:10px}}
+
+/* ---------- believe ---------- */
+#believe{background:var(--teak);text-align:center}
+#believe .wrap{max-width:820px}
+.creed{
+  font-family:'Marcellus',serif;
+  font-size:clamp(1.7rem,5vw,3rem);
+  line-height:1.35;color:var(--ivory);
+  margin:54px 0;
+}
+.creed span{color:var(--brass)}
+.believe-body{text-align:left;max-width:640px;margin:0 auto;color:var(--ivory-dim)}
+.believe-body p+p{margin-top:1.3em}
+
+/* ---------- beyond ---------- */
+#beyond{background:var(--teak-soft)}
+.beyond-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:20px}
+@media(max-width:760px){.beyond-grid{grid-template-columns:1fr;gap:48px}}
+.beyond-grid h3{font-size:1.4rem;margin-bottom:16px;color:var(--ivory)}
+.beyond-grid p{color:var(--ivory-dim)}
+.probably{color:var(--brass);font-style:italic}
+
+/* ---------- connect ---------- */
+#connect{background:var(--teak);text-align:center;padding-bottom:140px}
+#connect h2{margin-bottom:18px}
+#connect .lede{max-width:560px;margin:0 auto 48px;color:var(--ivory-dim)}
+.connect-links{display:flex;gap:22px;justify-content:center;flex-wrap:wrap}
+.btn{
+  display:inline-block;padding:16px 38px;
+  border:1px solid var(--brass);color:var(--brass);
+  font-size:.82rem;letter-spacing:.26em;text-transform:uppercase;
+  transition:background .25s,color .25s;
+}
+.btn:hover{background:var(--brass);color:var(--teak)}
+.btn.solid{background:var(--brass);color:var(--teak)}
+.btn.solid:hover{background:var(--ivory);border-color:var(--ivory)}
+.contact-form{max-width:520px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:14px;text-align:left}
+.contact-form input,.contact-form textarea{
+  -webkit-appearance:none;appearance:none;border-radius:0;
+  width:100%;padding:16px 18px;
+  background-color:var(--teak-soft);border:1px solid rgba(201,154,63,.3);
+  color:var(--ivory);font-family:'Karla',sans-serif;font-size:16px;
+  resize:vertical;
+}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:rgba(201,191,174,.55)}
+.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--brass)}
+.contact-form .btn{
+  -webkit-appearance:none;appearance:none;border-radius:0;
+  cursor:pointer;width:100%;margin-top:10px;
+  font-family:'Karla',sans-serif;font-weight:600;
+}
+.form-divider{
+  display:flex;align-items:center;gap:18px;
+  max-width:520px;margin:44px auto;
+  font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;
+  color:rgba(201,191,174,.5);
+}
+.form-divider::before,.form-divider::after{
+  content:'';flex:1;height:1px;background:rgba(201,154,63,.2);
+}
+
+footer{
+  padding:38px 24px;text-align:center;
+  font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(201,191,174,.5);
+  border-top:1px solid rgba(201,154,63,.12);
+  background:var(--teak);
+}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  #cube{animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-name" href="/" onclick="window.scrollTo({top:0,behavior:'smooth'});return false" style="color:var(--ivory)">ROBBIE VEE</a>
+    <div class="nav-links">
+      <a href="#story">Story</a>
+      <a href="#work">What I Do</a>
+      <a href="#believe">What I Believe</a>
+      <a href="#beyond">Beyond Work</a>
+      <a href="#connect">Connect</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <svg id="cube" viewBox="0 0 600 600" aria-hidden="true"></svg>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Chiang Mai, Thailand &middot; Connected Everywhere</div>
+    <h1>ROBBIE VEE</h1>
+    <div class="hero-line">Connecting worlds. Creating impact.</div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</header>
+
+<section id="story">
+  <div class="wrap cols">
+    <div class="sticky-side reveal">
+      <!-- Replace src with your portrait. Keep the filename simple: portrait.jpg -->
+      <img class="photo" src="portrait.jpg" alt="Robbie Vee" onerror="this.style.display='none'">
+      <div class="photo-cap">Somewhere between here and the next flight</div>
+    </div>
+    <div>
+      <div class="eyebrow reveal">The Story</div>
+      <h2 class="reveal">The long way here</h2>
+      <div class="rule reveal"></div>
+      <p class="lede reveal">I grew up on a farm in northern New South Wales, raised by my grandmother, never quite fitting the mould. Turns out that was the point.</p>
+      <p class="reveal">The path since has not been a straight line, and I would not trade it for one. Teaching English in Shanghai. Building friendships in Nepal. Dancing in front of half a million people in Sri Lanka. More than a decade working across China, Southeast Asia, Central Asia and Hong Kong in one of the world's most demanding industries, usually as the only Westerner in the room.</p>
+      <p class="reveal">What I learned along the way is simple: business runs on trust, and trust runs on genuine human connection. Not cold outreach. Not polished pitch decks. Sitting down with people, understanding their world, and meaning it.</p>
+      <p class="reveal">Some people are good at business. Some people are good with people. Rarely do you find both in the same person. Rarer still, someone who can walk into a room in Chiang Mai, Shanghai or Sydney and make the right people feel understood. That's what I do.</p>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="eyebrow reveal">What I Do</div>
+    <h2 class="reveal">Doors open differently in every culture.<br>I know which way they swing.</h2>
+    <div class="rule reveal"></div>
+    <p class="lede reveal" style="max-width:760px">For over two decades I've been building relationships across SE Asia, LATAM, Australia and beyond. I specialise in the work that can't be automated or outsourced: being the person who is already there, already trusted, already fluent in how things actually get done.</p>
+
+    <div class="work-list">
+      <div class="work-item reveal">
+        <h3>Strategic Partnerships</h3>
+        <p>Finding the right people, building real relationships with them, and turning those relationships into outcomes that last. From street level to boardroom, across every culture I've worked in.</p>
+      </div>
+      <div class="work-item reveal">
+        <h3>Market Entry &amp; Expansion</h3>
+        <p>A deal done right in Bangkok is done very differently to one in Buenos Aires or Brisbane. I help organisations grow across emerging markets without the expensive lessons.</p>
+      </div>
+      <div class="work-item reveal">
+        <h3>Cross-Cultural Bridge Building</h3>
+        <p>I've navigated complex Chinese corporate environments as a trusted Western bridge and built networks that span continents. When two worlds need to understand each other, that's my room.</p>
+      </div>
+      <div class="work-item reveal">
+        <h3>Speaking &amp; Brand Representation</h3>
+        <p>Stages, expos, delegations and dinners across Asia and beyond. I represent organisations the way I represent myself: warmly, directly and without a script.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="believe">
+  <div class="wrap">
+    <div class="eyebrow reveal">What I Believe</div>
+    <div class="creed reveal">&ldquo;When I speak my truth,<br>I feel my power<br>and <span>live in freedom</span>.&rdquo;</div>
+    <div class="believe-body">
+      <p class="reveal">That's my personal creed, and it took me fifty years to earn it. I believe every person has a purpose, and mine is connection: helping people, organisations and cultures genuinely see each other.</p>
+      <p class="reveal">I'm drawn to work that changes lives. Education, conscious business, impact finance, social enterprise. If the work matters, I'm interested. If it's just money moving around, I'm not your guy.</p>
+      <p class="reveal">I hold a deep spiritual view of life. I won't preach it at you, but it shapes everything: how I treat people, why I choose the work I choose, and my conviction that a life lived from your own truth beats one lived from anyone else's script.</p>
+    </div>
+  </div>
+</section>
+
+<section id="beyond">
+  <div class="wrap">
+    <div class="eyebrow reveal">Beyond Work</div>
+    <h2 class="reveal">The rest of the picture</h2>
+    <div class="rule reveal"></div>
+    <div class="beyond-grid">
+      <div class="reveal">
+        <h3>The Running Man</h3>
+        <p>For a while I travelled the world filming one dance in as many places as I could get to. It got picked up by international media and ended with me dancing in front of roughly half a million people at a kite festival in Colombo. Life is meant to be interesting.</p>
+      </div>
+      <div class="reveal">
+        <h3>The Book</h3>
+        <p>There's a book being written. That's all you get.<br><span class="probably">This is a work of fiction. Probably.</span></p>
+      </div>
+      <div class="reveal">
+        <h3>Chiang Mai</h3>
+        <p>Home base is northern Thailand: mountain air, good tea, a scooter and a suitcase never fully unpacked. The best decisions I make happen away from the noise.</p>
+      </div>
+      <div class="reveal">
+        <h3>People</h3>
+        <p>Friends on five continents and a genuine belief that a stranger is just a conversation that hasn't happened yet. If we've shared a meal, a stage or a long airport delay, you know this already.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="connect">
+  <div class="wrap">
+    <div class="eyebrow reveal">Connect</div>
+    <h2 class="reveal">If it matters, let's talk</h2>
+    <p class="lede reveal">Always open to conversations about meaningful partnerships, cross-cultural growth, and organisations doing work that matters.</p>
+    <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/xeebnbdw" method="POST">
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Your email" required>
+      <textarea name="message" rows="5" placeholder="What's on your mind?" required></textarea>
+      <button type="submit" class="btn solid" id="sendBtn">Send Message</button>
+    </form>
+    <div id="formSuccess" style="display:none;max-width:520px;margin:0 auto;text-align:center">
+      <p class="serif" style="font-size:1.5rem;color:var(--brass);margin-bottom:10px">Message received.</p>
+      <p style="color:var(--ivory-dim)">Thanks for reaching out. I'll be in touch soon.</p>
+    </div>
+    <div class="form-divider reveal">or</div>
+    <div class="connect-links reveal">
+      <a class="btn" href="https://www.linkedin.com/in/robbievee" target="_blank" rel="noopener">Find me on LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Robbie Vee &middot; Chiang Mai, Thailand &middot; Connecting Worlds. Creating Impact.
+</footer>
+
+<script>
+/* Metatron's Cube: 13 circles, every centre connected */
+(function(){
+  const svg=document.getElementById('cube');
+  const NS='http://www.w3.org/2000/svg';
+  const cx=300,cy=300,r1=95,r2=190,cr=46;
+  const pts=[[cx,cy]];
+  for(let i=0;i<6;i++){
+    const a=Math.PI/180*(60*i-90);
+    pts.push([cx+r1*Math.cos(a),cy+r1*Math.sin(a)]);
+    pts.push([cx+r2*Math.cos(a),cy+r2*Math.sin(a)]);
+  }
+  const g=document.createElementNS(NS,'g');
+  g.setAttribute('stroke','#c99a3f');g.setAttribute('fill','none');
+  for(let i=0;i<pts.length;i++){
+    for(let j=i+1;j<pts.length;j++){
+      const l=document.createElementNS(NS,'line');
+      l.setAttribute('x1',pts[i][0]);l.setAttribute('y1',pts[i][1]);
+      l.setAttribute('x2',pts[j][0]);l.setAttribute('y2',pts[j][1]);
+      l.setAttribute('stroke-width','.35');l.setAttribute('opacity','.32');
+      g.appendChild(l);
+    }
+  }
+  pts.forEach(p=>{
+    const c=document.createElementNS(NS,'circle');
+    c.setAttribute('cx',p[0]);c.setAttribute('cy',p[1]);c.setAttribute('r',cr);
+    c.setAttribute('stroke-width','.6');c.setAttribute('opacity','.45');
+    g.appendChild(c);
+  });
+  svg.appendChild(g);
+})();
+
+/* clean URLs: scroll to sections without hashes ever appearing */
+(function(){
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      var t=document.querySelector(a.getAttribute('href'));
+      if(t)t.scrollIntoView({behavior:'smooth'});
+    });
+  });
+})();
+
+/* contact form: submit in background, show inline success */
+(function(){
+  const form=document.getElementById('contactForm');
+  if(!form)return;
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    const btn=document.getElementById('sendBtn');
+    btn.textContent='Sending...';btn.disabled=true;
+    try{
+      const res=await fetch(form.action,{
+        method:'POST',
+        body:new FormData(form),
+        headers:{'Accept':'application/json'}
+      });
+      if(res.ok){
+        form.reset();
+        form.style.display='none';
+        document.getElementById('formSuccess').style.display='block';
+      }else{throw new Error();}
+    }catch(err){
+      btn.textContent='Something went wrong. Try again';
+      btn.disabled=false;
+      setTimeout(()=>{btn.textContent='Send Message';},3500);
+    }
+  });
+})();
+
+/* scroll reveal */
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+})();
+</script>
+</body>
+</html>
