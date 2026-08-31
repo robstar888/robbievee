@@ -74,9 +74,10 @@ nav{
 
 @media(max-width:640px){
   .nav-toggle{display:block}
-  nav{background:rgba(28,22,19,.94)}
+  nav{background:rgba(28,22,19,.94);backdrop-filter:none;-webkit-backdrop-filter:none}
   .nav-links{
-    position:fixed;top:0;left:0;right:0;bottom:0;
+    position:fixed;top:0;left:0;
+    width:100vw;height:100dvh;
     background:var(--teak);
     flex-direction:column;justify-content:center;align-items:center;
     gap:34px;font-size:.92rem;letter-spacing:.24em;
